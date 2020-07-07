@@ -1,0 +1,2 @@
+class Bleat < ApplicationRecord
+end
