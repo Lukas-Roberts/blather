@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
 
+    def index
+        @users = User.all
+        render json: @users
+    end
+
     def create
-        @user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation], email: prarms[:email], first_name: params[:first_name], last_name: prarms[:last_name])
-        if params[:phone_number]
-            @user.phone_number = params[:phone_number]
+        @user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:passwordConfirmation], email: params[:email], first_name: params[:firstName], last_name: params[:lastName])
+        if params[:phoneNumber] != ""
+            @user.phone_number = params[:phoneNumber]
+            @user.save
         end
         render json: @user
     end
