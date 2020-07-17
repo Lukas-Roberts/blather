@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :first_name
       t.string :last_name
-      t.string :phone_number
       t.boolean :private, default: false
 
       t.timestamps
