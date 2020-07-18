@@ -17,3 +17,43 @@ zen = User.create(username: 'ZENDAYA', password: password, email: 'zendaya@gmail
 finn = User.create(username: 'tooFinn', password: password, email: 'finnwolfy@gmail.com', first_name: 'Finn', last_name: 'Wolfhart')
 jimmy = User.create(username: 'whereIsJustin', password: password, email: 'jimmyfallon@gmail.com', first_name: 'Jimmy', last_name: 'Fallon')
 taylor = User.create(username: 'wolfNotShark', password: password, email: 'secondtaylor@gmail.com', first_name: 'Taylor', last_name: 'Lautner')
+
+tom1 = Bleat.create(user_id: 1, content: '')
+tom2 = Bleat.create(user_id: 1, content: '')
+tom3 = Bleat.create(user_id: 1, content: '')
+
+jen1 = Bleat.create(user_id: 2, content: '')
+jen2 = Bleat.create(user_id: 2, content: '')
+jen3 = Bleat.create(user_id: 2, content: '')
+
+emma1 = Bleat.create(user_id: 3, content: '')
+emma2 = Bleat.create(user_id: 3, content: '')
+emma3 = Bleat.create(user_id: 3, content: '')
+
+iliza1 = Bleat.create(user_id: 4, content: '')
+iliza2 = Bleat.create(user_id: 4, content: '')
+iliza3 = Bleat.create(user_id: 4, content: '')
+
+tiff1 = Bleat.create(user_id: 5, content: '')
+tiff2 = Bleat.create(user_id: 5, content: '')
+tiff3 = Bleat.create(user_id: 5, content: '')
+
+sarah1 = Bleat.create(user_id: 6, content: '')
+sarah2 = Bleat.create(user_id: 6, content: '')
+sarah3 = Bleat.create(user_id: 6, content: '')
+
+zen1 = Bleat.create(user_id: 7, content: '')
+zen2 = Bleat.create(user_id: 7, content: '')
+zen3 = Bleat.create(user_id: 7, content: '')
+
+finn1 = Bleat.create(user_id: 8, content: '')
+finn2 = Bleat.create(user_id: 8, content: '')
+finn3 = Bleat.create(user_id: 8, content: '')
+
+jimmy1 = Bleat.create(user_id: 9, content: '')
+jimmy2 = Bleat.create(user_id: 9, content: '')
+jimmy3 = Bleat.create(user_id: 9, content: '')
+
+taylor1 = Bleat.create(user_id: 10, content: '')
+taylor2 = Bleat.create(user_id: 10, content: '')
+taylor3 = Bleat.create(user_id: 10, content: '')
