@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_232430) do
   create_table "bleats", force: :cascade do |t|
     t.integer "user_id"
     t.string "content"
-    t.integer "rebleats"
-    t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
