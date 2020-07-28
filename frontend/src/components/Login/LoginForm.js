@@ -27,4 +27,16 @@ export default class LoginForm extends Component {
                 .catch(error => console.log(error))
         }
     }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} name='username' placeholder='Username' value={this.state.username} />
+                    <input onChange={this.handleChange} type='password' name='password' placeholder='Password' value={this.state.password} />
+                    <button type='submit'>Login</button>
+                </form>
+            </div>
+        )
+    }
 }
