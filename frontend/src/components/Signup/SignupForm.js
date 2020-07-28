@@ -47,7 +47,6 @@ export default class SignupForm extends Component {
                     <input onChange={this.handleChange} name='email' placeholder='email' value={this.state.email}/>
                     <input onChange={this.handleChange} name='firstName' placeholder='first name' value={this.state.firstName}/>
                     <input onChange={this.handleChange} name='lastName' placeholder='last name' value={this.state.lastName}/>
-                    <input onChange={this.handleChange} name='phoneNumber' placeholder='phone number' value={this.state.phoneNumber}/>
                     <button type='submit'>Start Bleating</button>
                 </form>
             </div>

@@ -7,10 +7,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:passwordConfirmation], email: params[:email], first_name: params[:firstName], last_name: params[:lastName])
-        if params[:phoneNumber] != ""
-            @user.phone_number = params[:phoneNumber]
-            @user.save
-        end
         render json: @user
     end
 
