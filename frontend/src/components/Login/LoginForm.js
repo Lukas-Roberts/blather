@@ -7,5 +7,11 @@ export default class LoginForm extends Component {
         password: ''
     }
 
-    
+    handleChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+
+        
+    }
 }
