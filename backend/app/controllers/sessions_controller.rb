@@ -15,4 +15,7 @@ class SessionsController < ApplicationController
         end
     end
 
+    def delete
+        session.clear
+    end
 end
