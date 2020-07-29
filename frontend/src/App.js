@@ -6,6 +6,8 @@ import {
 import logo from './logo.svg';
 import './App.css';
 import HomeContainer from './containers/HomeContainer'
+import SignupForm from './components/Signup/SignupForm';
+import LoginForm from './components/Login/LoginForm'
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Router>
         <div>
           <Route path='/' component={HomeContainer}/>
+          <Route path='/login' component={LoginForm} />
+          <Route path='/signup' component={SignupForm} />
         </div>
       </Router>
       <footer className="App-footer">
