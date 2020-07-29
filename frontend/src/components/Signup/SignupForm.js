@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Signup.css'
 
 export default class SignupForm extends Component {
 
@@ -20,6 +21,15 @@ export default class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.setState({
+            username: '',
+            password: '',
+            passwordConfirmation: '',
+            email: '',
+            firstName: '',
+            lastName: '',
+            phoneNumber: ''
+        })
         if(this.state.password === this.state.passwordConfirmation){
             fetch('http://localhost:3001/users', {
                 method: "POST",
@@ -39,8 +49,10 @@ export default class SignupForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className='signup'>
+                
                 <form onSubmit={this.handleSubmit}>
+                    <p>We're so happy you decided to join us!</p>
                     <input onChange={this.handleChange} name='username' placeholder='username' value={this.state.username}/>
                     <input type='password' onChange={this.handleChange} name='password' placeholder='password' value={this.state.password}/>
                     <input type='password' onChange={this.handleChange} name='passwordConfirmation' placeholder='confirm password' value={this.state.passwordConfirmation}/>
