@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 password = 'password'
 
+#------------- CREATED USERS -------------#
 tom = User.create(username: 'theRealTomHolland', password: password, password_confirmation: password, email: 'tomholland@gmail.com', first_name: 'Tom', last_name: 'Holland')
 jen = User.create(username: 'notRachelGreen', password: password, password_confirmation: password, email: 'jenaniston@gmail.com', first_name: 'Jennifer', last_name: 'Aniston')
 emma = User.create(username: 'theRealHester', password: password, password_confirmation: password, email: 'hesterprinn@gmail.com', first_name: 'Emma', last_name: 'Stone')
@@ -17,7 +18,10 @@ zen = User.create(username: 'ZENDAYA', password: password, password_confirmation
 finn = User.create(username: 'tooFinn', password: password, password_confirmation: password, email: 'finnwolfy@gmail.com', first_name: 'Finn', last_name: 'Wolfhart')
 jimmy = User.create(username: 'whereIsJustin', password: password, password_confirmation: password, email: 'jimmyfallon@gmail.com', first_name: 'Jimmy', last_name: 'Fallon')
 taylor = User.create(username: 'wolfNotShark', password: password, password_confirmation: password, email: 'secondtaylor@gmail.com', first_name: 'Taylor', last_name: 'Lautner')
+#---------------------------#
 
+
+#------------- CREATED BLEATS -------------#
 tom1 = Bleat.create(user_id: 1, content: 'ITS ME, SPIDERMAN')
 tom2 = Bleat.create(user_id: 1, content: 'I miss you tony')
 tom3 = Bleat.create(user_id: 1, content: 'You can stand under my umbrella')
@@ -57,3 +61,47 @@ jimmy3 = Bleat.create(user_id: 9, content: 'Hey Justin, you should join blather 
 taylor1 = Bleat.create(user_id: 10, content: 'Sharkboy and Lavagirl was the biggest mistake of my life')
 taylor2 = Bleat.create(user_id: 10, content: 'I miss being able to turn into a wolf')
 taylor3 = Bleat.create(user_id: 10, content: 'I also go back to december sometimes...')
+#-----------------------------#
+
+
+#------------- CREATED FOLLOWING_USERS -------------#
+tomFollowZen = FollowingUser.create(following_id: 7, follower_id: 1)
+tomFollowJimmy = FollowingUser.create(following_id: 9, follower_id: 1)
+tomFollowIliza = FollowingUser.create(following_id: 4, follower_id: 1)
+
+jenFollowIliza= FollowingUser.create(following_id: 4, follower_id: 2)
+jenFollowTaylor= FollowingUser.create(following_id: 10, follower_id: 2)
+jenFollowTiffany= FollowingUser.create(following_id: 5, follower_id: 2)
+
+emmaFollowJen= FollowingUser.create(following_id: 2, follower_id: 3)
+emmaFollowJimmy= FollowingUser.create(following_id: 9, follower_id: 3)
+emmaFollowZen= FollowingUser.create(following_id: 7, follower_id: 3)
+
+ilizaFollowEmma= FollowingUser.create(following_id: 3, follower_id: 4)
+ilizaFollowSarah= FollowingUser.create(following_id: 6, follower_id: 4)
+ilizaFollowFinn= FollowingUser.create(following_id: 8, follower_id: 4)
+
+tiffFollowFinn= FollowingUser.create(following_id: 8, follower_id: 5)
+tiffFollowTom= FollowingUser.create(following_id: 1, follower_id: 5)
+tiffFollowTaylor= FollowingUser.create(following_id: 10, follower_id: 5)
+
+sarahFollowIliza= FollowingUser.create(following_id: 4, follower_id: 6)
+sarahFollowJimmy= FollowingUser.create(following_id: 9, follower_id: 6)
+sarahFollowTiffany= FollowingUser.create(following_id: 5, follower_id: 6)
+
+zenFollowFinn= FollowingUser.create(following_id: 8, follower_id: 7)
+zenFollowJen= FollowingUser.create(following_id: 2, follower_id: 7)
+zenFollowTom= FollowingUser.create(following_id: 1, follower_id: 7)
+
+finnFollowTom= FollowingUser.create(following_id: 1, follower_id: 8)
+finnFollowZen= FollowingUser.create(following_id: 7, follower_id: 8)
+finnFollowJen= FollowingUser.create(following_id: 2, follower_id: 8)
+
+jimmyFollowEmma= FollowingUser.create(following_id: 3, follower_id: 9)
+jimmyFollowSarah= FollowingUser.create(following_id: 6, follower_id: 9)
+jimmyFollowTiffany= FollowingUser.create(following_id: 5, follower_id: 9)
+
+taylorFollowEmma= FollowingUser.create(following_id: 3, follower_id: 10)
+taylorFollowTiffany= FollowingUser.create(following_id: 5, follower_id: 10)
+taylorFollowTom= FollowingUser.create(following_id: 1, follower_id: 10)
+#-----------------------------------#
