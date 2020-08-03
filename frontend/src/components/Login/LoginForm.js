@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../Signup/SignupLogin.css'
 
 export default class LoginForm extends Component {
 
@@ -30,8 +31,9 @@ export default class LoginForm extends Component {
     
     render() {
         return (
-            <div>
+            <div className='login'>
                 <form onSubmit={this.handleSubmit}>
+                    <p>Welcome back!</p>
                     <input onChange={this.handleChange} name='username' placeholder='Username' value={this.state.username} />
                     <input onChange={this.handleChange} type='password' name='password' placeholder='Password' value={this.state.password} />
                     <button type='submit'>Login</button>
