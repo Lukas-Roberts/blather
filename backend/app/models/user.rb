@@ -13,5 +13,6 @@ class User < ApplicationRecord
     has_many :follower_users, class_name: "FollowingUser", foreign_key: "following_id", dependent: :destroy
     has_many :followers, class_name: "User", through: :follower_users, foreign_key: "follower_id"
     has_many :following, class_name: "User", through: :following_users, foreign_key: "following_id"
+    attr_accessor :feed
     
 end
