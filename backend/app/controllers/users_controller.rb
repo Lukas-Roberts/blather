@@ -12,27 +12,26 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: params[:id])
-        feed = []
-        user.following.each do |u|
-            feed << u.bleats.last(2)
-        end
+        user.getFeed
         
-        user.feed = feed.flatten.sort{|a, b| a.created_at <=> b.created_at}
-        user.save
-         render json: user,
+        render json: user,
             only: [:username, :first_name],
-                include: { followers: {
+            include: {
+                followers: {
                     only: :username
-                    },
-                    following: {
-                        only: [:username, :id]
-                    },
-                    feed: {
-                        only: [:user_id, :content],
-                        include: { user: {
+                },
+                following: {
+                    only: :username
+                },
+                feed: {
+                    only: [:user_id, :content],
+                    include: {
+                        user: {
                             only: [:username, :first_name]
-                        }}
-                    }}
+                        }
+                    }
+                }
+            }
                     
                     
                     
