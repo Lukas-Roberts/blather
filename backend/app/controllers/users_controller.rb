@@ -14,12 +14,10 @@ class UsersController < ApplicationController
         user = User.find_by(id: params[:id])
         feed = []
         user.following.each do |u|
-            u.bleats.each do |b|
-                feed << b 
-            end
+            feed << u.bleats.last(2)
         end
         
-        user.feed = feed.sort{|a, b| a.created_at <=> b.created_at}
+        user.feed = feed.flatten.sort{|a, b| a.created_at <=> b.created_at}
         user.save
          render json: user,
             only: [:username, :first_name],
@@ -30,7 +28,10 @@ class UsersController < ApplicationController
                         only: [:username, :id]
                     },
                     feed: {
-                        only: [:user_id, :content]
+                        only: [:user_id, :content],
+                        include: { user: {
+                            only: [:username, :first_name]
+                        }}
                     }}
                     
                     
