@@ -16,6 +16,10 @@ export default class LoginForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.setState({
+            username: '',
+            password: ''
+        })
         fetch('http://localhost:3001/login', {
             method: 'POST',
             headers: {

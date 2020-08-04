@@ -30,6 +30,7 @@ export default class SignupForm extends Component {
             lastName: '',
             phoneNumber: ''
         })
+        /*  dont fetch right here, use dispatch and fetch in actions */
         if(this.state.password === this.state.passwordConfirmation){
             fetch('http://localhost:3001/users', {
                 method: "POST",
@@ -50,7 +51,6 @@ export default class SignupForm extends Component {
     render() {
         return (
             <div className='signup'>
-                
                 <form onSubmit={this.handleSubmit}>
                     <p>We're so happy you decided to join us!</p>
                     <input onChange={this.handleChange} name='username' placeholder='username' value={this.state.username}/>
