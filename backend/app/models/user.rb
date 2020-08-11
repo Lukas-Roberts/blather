@@ -17,14 +17,10 @@ class User < ApplicationRecord
         feed = []
         user.following.each do |u|
             n = u.bleats.reverse()
-            feed << n.first(2)
+            feed << n
         end
         user.feed = feed.flatten.sort{|a, b| a.created_at <=> b.created_at}
         user.save
-    end
-
-    def updateFeed
-
     end
     
 end

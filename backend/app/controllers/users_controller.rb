@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     def show
         user = User.find_by(id: params[:id])
         user.getFeed
-        
         render json: user,
             only: [:username, :first_name],
             include: {
