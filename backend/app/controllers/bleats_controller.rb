@@ -5,4 +5,10 @@ class BleatsController < ApplicationController
         render json: @bleats
     end
 
+    def create
+
+        
+    end
+
+
 end

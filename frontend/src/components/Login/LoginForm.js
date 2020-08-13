@@ -38,9 +38,8 @@ export default class LoginForm extends Component {
     purple = json => {
         console.log(json)
         if(json.user && json.message == 'Login successful!') {
-            this.setState({
-                shouldRedirect: true
-            })
+            
+            {<Redirect to="/home"/>}
         }
         else {
             alert(json.message)
@@ -48,10 +47,7 @@ export default class LoginForm extends Component {
     }
 
     render() {
-        return this.state.shouldRedirect ?
-        (<Redirect to="/home" /> )
-        :
-        (
+        return (
             <div className='login'>
                 <form onSubmit={this.handleSubmit}>
                     <p>Welcome back!</p>
