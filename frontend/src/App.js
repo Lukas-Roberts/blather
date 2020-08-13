@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import './App.css';
-import HomeContainer from './containers/HomeContainer'
+import LandingContainer from './containers/LandingContainer'
 import SignupForm from './components/Signup/SignupForm';
 import LoginForm from './components/Login/LoginForm'
 
@@ -14,7 +14,7 @@ function App() {
       {/*code here*/}
       <Router>
         <div>
-          <Route path='/' component={HomeContainer}/>
+          <Route path='/' component={LandingContainer}/>
           <Route path='/login' component={LoginForm} />
           <Route path='/signup' component={SignupForm} />
         </div>
@@ -24,3 +24,15 @@ function App() {
 }
 
 export default App;
+
+
+/*
+-----  REQUIREMENTS  -----
+There should be 2 container components
+There should be 5 stateless components
+There should be 3 routes
+Application must make use of react-router and proper RESTful routing
+Use Redux middleware to respond to and modify state change
+Make use of async actions and redux-thunk middleware
+Your client-side application should handle the display of data with minimal data manipulation
+*/
