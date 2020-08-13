@@ -1,5 +1,6 @@
 const ADD_USER = 'ADD_USER'
 const SET_USER = 'SET_USER'
+const CLEAR_USER = 'CLEAR_USER'
 
 const ADD_BLEAT = 'ADD_BLEAT'
 
@@ -9,6 +10,7 @@ const UNFOLLOW_USER = 'UNFOLLOW_USER'
 export {
     ADD_USER,
     SET_USER,
+    CLEAR_USER,
     ADD_BLEAT,
     FOLLOW_USER,
     UNFOLLOW_USER
