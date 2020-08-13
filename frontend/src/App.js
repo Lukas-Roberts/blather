@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 import './App.css';
 import LandingContainer from './containers/LandingContainer';
@@ -14,12 +15,14 @@ function App() {
     <div className="App">
       {/*code here*/}
       <Router>
-        <div>
+        <Switch>
+          <div>
           <Route path='/' component={LandingContainer}/>
           <Route path='/login' component={LoginForm} />
           <Route path='/signup' component={SignupForm} />
           <Route path='/home' component={HomeContainer} />
-        </div>
+          </div>
+        </Switch>
       </Router>
     </div>
   );

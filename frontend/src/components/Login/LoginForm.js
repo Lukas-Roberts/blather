@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import '../Signup/SignupLogin.css'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default class LoginForm extends Component {
 
     state = {
         username: '',
-        password: ''
+        password: '',
+        shouldRedirect: false
     }
 
     handleChange = event => {
@@ -29,12 +31,27 @@ export default class LoginForm extends Component {
             body: JSON.stringify(this.state)
         })
             .then(resp => resp.json())
-            .then(json => console.log(json))
+            .then(json => this.purple(json))
             .catch(error => console.log(error))
     }
-    
+
+    purple = json => {
+        console.log(json)
+        if(json.user && json.message == 'Login successful!') {
+            this.setState({
+                shouldRedirect: true
+            })
+        }
+        else {
+            alert(json.message)
+        }
+    }
+
     render() {
-        return (
+        return this.state.shouldRedirect ?
+        (<Redirect to="/home" /> )
+        :
+        (
             <div className='login'>
                 <form onSubmit={this.handleSubmit}>
                     <p>Welcome back!</p>

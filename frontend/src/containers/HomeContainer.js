@@ -8,3 +8,5 @@ const HomeContainer = () => (
         <BleatInput />
     </div>
 )
+
+export default HomeContainer;
