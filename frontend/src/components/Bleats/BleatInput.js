@@ -14,7 +14,20 @@ export default class BleatInput extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-
+        this.setState({
+            content: ''
+        })
+        fetch('http://localhost:3001/bleats', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+        .catch(error => console.log(error))
     }
 
     render () {
