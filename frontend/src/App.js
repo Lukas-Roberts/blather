@@ -2,11 +2,12 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 import './App.css';
-import LandingContainer from './containers/LandingContainer'
+import LandingContainer from './containers/LandingContainer';
 import SignupForm from './components/Signup/SignupForm';
-import LoginForm from './components/Login/LoginForm'
+import LoginForm from './components/Login/LoginForm';
+import HomeContainer from './containers/HomeContainer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' component={LandingContainer}/>
           <Route path='/login' component={LoginForm} />
           <Route path='/signup' component={SignupForm} />
+          <Route path='/home' component={HomeContainer} />
         </div>
       </Router>
     </div>
