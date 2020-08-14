@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/SignupLogin.css'
+import '../../css/SignupLogin.css';
 import { loginUser } from '../../actions/loginActions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
