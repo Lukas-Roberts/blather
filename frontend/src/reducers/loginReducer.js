@@ -6,9 +6,10 @@ import {
 export default function loginReducer(state= {user: null, loggedIn:false}, action) {
     switch(action.type) {
         case SET_USER:
+            console.log(action)
             return {
                 ...state,
-                user: action.payload,
+                user: action.payload.user,
                 loggedIn: true
             }
         
@@ -17,6 +18,11 @@ export default function loginReducer(state= {user: null, loggedIn:false}, action
                 ...state,
                 user: null,
                 loggedIn: false
+            }
+
+        default:
+            return {
+                ...state
             }
     }
 }

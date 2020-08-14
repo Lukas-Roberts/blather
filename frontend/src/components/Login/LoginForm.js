@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import '../Signup/SignupLogin.css'
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
+import React, { Component } from 'react';
+import '../Signup/SignupLogin.css';
+import { loginUser } from '../../actions/loginActions'
+import { connect } from 'react-redux';
 
-export default class LoginForm extends Component {
+
+class LoginForm extends Component {
 
     state = {
         username: '',
@@ -18,33 +20,13 @@ export default class LoginForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.props.loginUser(this.state)
         this.setState({
             username: '',
             password: ''
         })
-        fetch('http://localhost:3001/login', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        })
-            .then(resp => resp.json())
-            .then(json => this.purple(json))
-            .catch(error => console.log(error))
     }
 
-    purple = json => {
-        console.log(json)
-        if(json.user && json.message == 'Login successful!') {
-            
-            {<Redirect to="/home"/>}
-        }
-        else {
-            alert(json.message)
-        }
-    }
 
     render() {
         return (
@@ -59,3 +41,9 @@ export default class LoginForm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    loginUser: user => {dispatch(loginUser(user))}
+})
+
+export default connect(null, mapDispatchToProps)(LoginForm)
