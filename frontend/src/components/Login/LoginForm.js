@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Signup/SignupLogin.css';
 import { loginUser } from '../../actions/loginActions'
 import { connect } from 'react-redux';
-
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends Component {
 
@@ -29,7 +29,10 @@ class LoginForm extends Component {
 
 
     render() {
-        return (
+        return this.props.loggedIn ?
+        (<Redirect to='/home' /> )
+        :
+        (
             <div className='login'>
                 <form onSubmit={this.handleSubmit}>
                     <p>Welcome back!</p>
@@ -42,8 +45,15 @@ class LoginForm extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        loggedIn: state.loggedIn
+    }
+}
+
 const mapDispatchToProps = dispatch => ({
     loginUser: user => {dispatch(loginUser(user))}
 })
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

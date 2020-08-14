@@ -12,19 +12,28 @@ import HomeContainer from './containers/HomeContainer';
 
 function App() {
   return (
-    <div className="App">
-      {/*code here*/}
-      <Router>
+    <Router>
+      <div className="App">
         <Switch>
-          <div>
-          <Route path='/' component={LandingContainer}/>
-          <Route path='/login' component={LoginForm} />
-          <Route path='/signup' component={SignupForm} />
-          <Route path='/home' component={HomeContainer} />
-          </div>
+          <Route exact path='/'>
+            <LandingContainer />
+          </Route>
+
+          <Route path='/login'>
+            <LoginForm />
+          </Route>
+
+          <Route path='/signup'>
+            <SignupForm />
+          </Route>
+
+          <Route path='/home'>
+            <HomeContainer />
+          </Route>
+
         </Switch>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
