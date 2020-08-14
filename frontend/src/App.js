@@ -4,7 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import './App.css';
+import './css/App.css';
 import LandingContainer from './containers/LandingContainer';
 import SignupForm from './components/Signup/SignupForm';
 import LoginForm from './components/Login/LoginForm';

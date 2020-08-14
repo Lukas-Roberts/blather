@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './LandingContainer.css'
+import '../css/LandingContainer.css'
 
 const LandingContainer = () => (
     <div className='landing'>
