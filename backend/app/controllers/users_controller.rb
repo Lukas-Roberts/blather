@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:passwordConfirmation], email: params[:email], first_name: params[:firstName], last_name: params[:lastName])
+        user_params = params[:user]
+        @user = User.create(username: user_params[:username], password: user_params[:password], password_confirmation: user_params[:passwordConfirmation], email: user_params[:email], first_name: user_params[:firstName], last_name: user_params[:lastName])
         render json: @user, only: [:username, :first_name]
     end
 
@@ -30,10 +31,7 @@ class UsersController < ApplicationController
                         }
                     }
                 }
-            }
-                    
-                    
-                    
+            }            
     end
 
 end

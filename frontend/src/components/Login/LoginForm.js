@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Signup/SignupLogin.css';
-import { loginUser } from '../../actions/loginActions'
+import { loginUser } from '../../actions/loginActions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -8,8 +8,7 @@ class LoginForm extends Component {
 
     state = {
         username: '',
-        password: '',
-        shouldRedirect: false
+        password: ''
     }
 
     handleChange = event => {

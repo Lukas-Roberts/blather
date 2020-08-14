@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
-import './SignupLogin.css'
+import React, { Component } from 'react';
+import './SignupLogin.css';
+import { createUser } from '../../actions/loginActions';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-export default class SignupForm extends Component {
+class SignupForm extends Component {
 
     state = {
         username: '',
@@ -9,8 +12,7 @@ export default class SignupForm extends Component {
         passwordConfirmation: '',
         email: '',
         firstName: '',
-        lastName: '',
-        phoneNumber: ''
+        lastName: ''
     }
 
     handleChange = event => {
@@ -21,35 +23,22 @@ export default class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.props.createUser(this.state)
         this.setState({
             username: '',
             password: '',
             passwordConfirmation: '',
             email: '',
             firstName: '',
-            lastName: '',
-            phoneNumber: ''
-        })
-        /*  dont fetch right here, use dispatch and fetch in actions */
-        if(this.state.password === this.state.passwordConfirmation){
-            fetch('http://localhost:3001/users', {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state)
-            })
-                .then(resp => resp.json())
-                .then(json => console.log(json))
-        }
-        else {
-            alert('Passwords do not match!')
-        }
+            lastName: ''
+        })    
     }
 
     render() {
-        return (
+        return this.props.loggedIn ?
+        (<Redirect to='/home' /> )
+        :
+        (
             <div className='signup'>
                 <form onSubmit={this.handleSubmit}>
                     <p>We're so happy you decided to join us!</p>
@@ -65,3 +54,16 @@ export default class SignupForm extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        loggedIn: state.loggedIn
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    createUser: user => {dispatch(createUser(user))}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
