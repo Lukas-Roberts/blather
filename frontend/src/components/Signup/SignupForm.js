@@ -40,15 +40,15 @@ class SignupForm extends Component {
         :
         (
             <div className='signup'>
+                <h3>Create your account</h3>
                 <form onSubmit={this.handleSubmit}>
-                    <p>We're so happy you decided to join us!</p>
-                    <input onChange={this.handleChange} name='username' placeholder='username' value={this.state.username}/>
-                    <input type='password' onChange={this.handleChange} name='password' placeholder='password' value={this.state.password}/>
-                    <input type='password' onChange={this.handleChange} name='passwordConfirmation' placeholder='confirm password' value={this.state.passwordConfirmation}/>
-                    <input onChange={this.handleChange} name='email' placeholder='email' value={this.state.email}/>
-                    <input onChange={this.handleChange} name='firstName' placeholder='first name' value={this.state.firstName}/>
-                    <input onChange={this.handleChange} name='lastName' placeholder='last name' value={this.state.lastName}/>
-                    <button type='submit'>Start Bleating</button>
+                    <input onChange={this.handleChange} name='username' placeholder='Username' value={this.state.username}/>
+                    <input type='password' onChange={this.handleChange} name='password' placeholder='Password' value={this.state.password}/>
+                    <input type='password' onChange={this.handleChange} name='passwordConfirmation' placeholder='Confirm Password' value={this.state.passwordConfirmation}/>
+                    <input onChange={this.handleChange} name='email' placeholder='Email' value={this.state.email}/>
+                    <input onChange={this.handleChange} name='firstName' placeholder='First Name' value={this.state.firstName}/>
+                    <input onChange={this.handleChange} name='lastName' placeholder='Last Name' value={this.state.lastName}/>
+                    <button type='submit'>Join</button>
                 </form>
             </div>
         )
