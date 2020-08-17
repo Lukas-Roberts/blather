@@ -48,7 +48,7 @@ class SignupForm extends Component {
                     <input onChange={this.handleChange} name='email' placeholder='Email' value={this.state.email}/>
                     <input onChange={this.handleChange} name='firstName' placeholder='First Name' value={this.state.firstName}/>
                     <input onChange={this.handleChange} name='lastName' placeholder='Last Name' value={this.state.lastName}/>
-                    <button type='submit'>Join</button>
+                    <button type='submit'><strong>Join</strong></button>
                 </form>
             </div>
         )
