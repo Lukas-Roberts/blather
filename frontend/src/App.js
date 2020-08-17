@@ -9,11 +9,13 @@ import LandingContainer from './containers/LandingContainer';
 import SignupForm from './components/Signup/SignupForm';
 import LoginForm from './components/Login/LoginForm';
 import HomeContainer from './containers/HomeContainer';
+import NavBar from './components/NavBar'
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <NavBar/>
         <Switch>
           <Route exact path='/'>
             <LandingContainer />
