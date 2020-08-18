@@ -6,10 +6,10 @@ import {
 export default function loginReducer(state= {user: null, loggedIn:false}, action) {
     switch(action.type) {
         case SET_USER:
-            if(action.payload.user){
+            if(action.payload.username){
                return {
                     ...state,
-                    user: action.payload.user,
+                    user: action.payload,
                     loggedIn: true
                 } 
             }
