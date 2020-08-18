@@ -53,8 +53,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    loginUser: user => {dispatch(loginUser(user))},
-    clearUser: () => {dispatch(clearUser())}
+    loginUser: user => {dispatch(loginUser(user))}
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
