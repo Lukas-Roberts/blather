@@ -11,6 +11,12 @@ footer {
   padding-bottom: 10px;
 }
 
+.App {
+  margin: 0 15%;
+  border-left: 2px solid #61dafb;
+  border-right: 2px solid #61dafb;
+}
+
 .App-logo {
   height: calc(10px + 1.25vmin);
   pointer-events: none;

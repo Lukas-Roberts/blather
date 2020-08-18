@@ -14,8 +14,8 @@ import NavBar from './components/NavBar'
 function App() {
   return (
     <Router>
+      <NavBar/>
       <div className="App">
-        <NavBar/>
         <Switch>
           <Route exact path='/'>
             <LandingContainer />

@@ -1,0 +1,8 @@
+.navbar {
+    float: left;
+    position: absolute;
+}
+
+ul {
+    list-style-type: none;
+}
