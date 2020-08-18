@@ -16,11 +16,12 @@ export const loginUser = (user) => {
                 body: JSON.stringify(formData)
             })
             const userObj = await response.json()
+            console.log(userObj, 'userobj')
             dispatch(setUser(userObj))
             
         }
         catch(data) {
-            console.log(data)
+            console.log(data, 'data')
         }
     }
 }

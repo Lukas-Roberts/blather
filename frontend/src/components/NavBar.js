@@ -8,13 +8,14 @@ const NavBar = (props) => {
         <div className='navbar'>
             {props.loggedIn ? 
                 <ul>
-                    <NavLink to='/home'><img src={sheep} alt='sheep' /></NavLink>
-                    <NavLink to='/home'>logged in home</NavLink>
+                    <NavLink to='/home'><img src={sheep} alt='sheep' className='logo'/></NavLink><br/>
+                    <NavLink to='/home'>Profile</NavLink>
                 </ul>
                 :
                 <ul>
-                    <NavLink to='/'><img src={sheep} alt='sheep' /></NavLink>
-                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink to='/'><img src={sheep} alt='sheep' className='logo'/></NavLink><br/>
+                    <NavLink to='/login'>Log In</NavLink><br/>
+                    <NavLink to='/signup'>Sign Up</NavLink>
                 </ul>
             }
         </div>
