@@ -9,10 +9,11 @@ footer {
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
+  background-color: #282c34;
 }
 
 .App {
-  margin: 0 15%;
+  margin: 0 17% 7% 17%;
   border-left: 2px solid #61dafb;
   border-right: 2px solid #61dafb;
 }

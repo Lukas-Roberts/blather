@@ -9,12 +9,12 @@ const NavBar = (props) => {
         <div className='navbar'>
             {props.loggedIn ? 
                 <ul>
-                    <li><NavLink to='/home'><img src={sheep} alt='sheep' className='logo'/></NavLink></li><br/>
+                    <li><NavLink to='/home'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
                     <li><NavLink to='/home'>Profile</NavLink></li>
                 </ul>
                 :
                 <ul>
-                    <li><NavLink to='/'><img src={sheep} alt='sheep' className='logo'/></NavLink></li><br/>
+                    <li><NavLink to='/'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
                     <li><NavLink to='/login'>Log In</NavLink></li><br/>
                     <li><NavLink to='/signup'>Sign Up</NavLink></li>
                 </ul>
