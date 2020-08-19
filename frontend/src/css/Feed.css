@@ -1,0 +1,31 @@
+.feed {
+    border-top: 1px solid lightgray;
+    margin: 0 40px;
+    padding: 0;
+}
+
+.bleat {
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+.name {
+    margin: 0;
+    float: left;
+    color: lightgray;
+}
+
+.username {
+    clear: right;
+    display: flex;
+    justify-content: left;
+}
+
+p {
+    clear: both;
+    color: gray;
+    text-align: left;
+}

@@ -21,6 +21,6 @@ class User < ApplicationRecord
         end
         user.feed = feed.flatten.sort{|a, b| a.created_at <=> b.created_at}
         user.save
-    end
-    
+    end 
+        
 end

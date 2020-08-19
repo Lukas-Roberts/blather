@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:user][:password])
             log_in(user)
             render json: user,
-                only: [:username, :first_name, :last_name, :id],
-                include: {
+                only: [:username, :id, :full_name],
+                include: [
                     followers: {
                         only: :username
                     },
@@ -21,11 +21,11 @@ class SessionsController < ApplicationController
                         only: [:user_id, :content],
                         include: {
                             user: {
-                                only: [:username, :first_name]
+                                only: [:username, :full_name]
                             }
                         }
                     }
-                }
+                ]
                     
             #render json & pass user
         else

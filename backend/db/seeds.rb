@@ -8,16 +8,16 @@
 password = 'password'
 
 #------------- CREATED USERS -------------#
-tom = User.create(username: 'theRealTomHolland', password: password, password_confirmation: password, email: 'tomholland@gmail.com', first_name: 'Tom', last_name: 'Holland')
-jen = User.create(username: 'notRachelGreen', password: password, password_confirmation: password, email: 'jenaniston@gmail.com', first_name: 'Jennifer', last_name: 'Aniston')
-emma = User.create(username: 'theRealHester', password: password, password_confirmation: password, email: 'hesterprinn@gmail.com', first_name: 'Emma', last_name: 'Stone')
-iliza = User.create(username: 'anElderMillenial', password: password, password_confirmation: password, email: 'elderiliza@gmail.com', first_name: 'Iliza', last_name: 'Shlesinger')
-tiff = User.create(username: 'ohSheReady', password: password, password_confirmation: password, email: 'tiffhaddish@gmail.com', first_name: 'Tiffany', last_name: 'Haddish')
-sarah = User.create(username: 'theRealSJP', password: password, password_confirmation: password, email: 'sarahjessica@gmail.com', first_name: 'Sarah', last_name: 'JessicaParker')
-zen = User.create(username: 'ZENDAYA', password: password, password_confirmation: password, email: 'zendaya@gmail.com', first_name: 'Zendaya', last_name: 'Unknown')
-finn = User.create(username: 'tooFinn', password: password, password_confirmation: password, email: 'finnwolfy@gmail.com', first_name: 'Finn', last_name: 'Wolfhart')
-jimmy = User.create(username: 'whereIsJustin', password: password, password_confirmation: password, email: 'jimmyfallon@gmail.com', first_name: 'Jimmy', last_name: 'Fallon')
-taylor = User.create(username: 'wolfNotShark', password: password, password_confirmation: password, email: 'secondtaylor@gmail.com', first_name: 'Taylor', last_name: 'Lautner')
+tom = User.create(username: 'theRealTomHolland', password: password, password_confirmation: password, email: 'tomholland@gmail.com', first_name: 'Tom', last_name: 'Holland', full_name: 'Tom Holland')
+jen = User.create(username: 'notRachelGreen', password: password, password_confirmation: password, email: 'jenaniston@gmail.com', first_name: 'Jennifer', last_name: 'Aniston', full_name: 'Jennifer Aniston')
+emma = User.create(username: 'theRealHester', password: password, password_confirmation: password, email: 'hesterprinn@gmail.com', first_name: 'Emma', last_name: 'Stone', full_name: 'Emma Stone')
+iliza = User.create(username: 'anElderMillenial', password: password, password_confirmation: password, email: 'elderiliza@gmail.com', first_name: 'Iliza', last_name: 'Shlesinger', full_name: 'Iliza Shlesinger')
+tiff = User.create(username: 'ohSheReady', password: password, password_confirmation: password, email: 'tiffhaddish@gmail.com', first_name: 'Tiffany', last_name: 'Haddish', full_name: 'Tiffany Haddish')
+sarah = User.create(username: 'theRealSJP', password: password, password_confirmation: password, email: 'sarahjessica@gmail.com', first_name: 'Sarah', last_name: 'JessicaParker', full_name: 'Sarah JessicaParker')
+zen = User.create(username: 'ZENDAYA', password: password, password_confirmation: password, email: 'zendaya@gmail.com', first_name: 'Zendaya', last_name: 'Unknown', full_name: 'Zendaya Unknown')
+finn = User.create(username: 'tooFinn', password: password, password_confirmation: password, email: 'finnwolfy@gmail.com', first_name: 'Finn', last_name: 'Wolfhart', full_name: 'Finn Wolfhart')
+jimmy = User.create(username: 'whereIsJustin', password: password, password_confirmation: password, email: 'jimmyfallon@gmail.com', first_name: 'Jimmy', last_name: 'Fallon', full_name: 'Jimmy Fallon')
+taylor = User.create(username: 'wolfNotShark', password: password, password_confirmation: password, email: 'secondtaylor@gmail.com', first_name: 'Taylor', last_name: 'Lautner', full_name: 'Taylor Lautner')
 #---------------------------#
 
 
