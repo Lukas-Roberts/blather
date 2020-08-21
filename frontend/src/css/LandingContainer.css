@@ -12,6 +12,14 @@ h3 {
 }
 
 .logo {
-    width: 5%;
+    width: 40px;
     image-orientation: flip;
+}
+
+.links {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
