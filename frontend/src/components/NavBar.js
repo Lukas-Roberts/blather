@@ -10,7 +10,7 @@ const NavBar = (props) => {
             {props.loggedIn ? 
                 <ul>
                     <li><NavLink to='/home'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
-                    <li><NavLink to='/home' className='links'><strong>Home</strong></NavLink></li><br/>
+                    <li><NavLink to='/home'><strong>Home</strong></NavLink></li><br/>
                     <li><NavLink to='/profile'><strong>Profile</strong></NavLink></li>
                 </ul>
                 :

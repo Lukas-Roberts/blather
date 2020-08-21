@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../css/Feed.css';
+import '../css/ProfileContainer.css';
 
 const Profile = (props) => (
     <div className='profile'>

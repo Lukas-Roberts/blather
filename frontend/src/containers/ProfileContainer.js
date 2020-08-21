@@ -1,15 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../css/HomeContainer.css';
-import BleatInput from '../components/Bleats/BleatInput';
-import Feed from '../components/Feed';
+import '../css/ProfileContainer.css';
+import Profile from '../components/Profile';
 import { Redirect } from 'react-router-dom';
 
-const HomeContainer = (props) => (
+const ProfileContainer = (props) => (
     props.loggedIn ?
-    <div className='home'>
-        
-        <Feed />
+    <div className='profileContainer'>
+        <Profile />
     </div>
     :
     (<Redirect to='/' />)
@@ -21,4 +19,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(HomeContainer);
+export default connect(mapStateToProps)(ProfileContainer);
