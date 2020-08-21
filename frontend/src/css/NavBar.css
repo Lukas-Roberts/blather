@@ -5,9 +5,18 @@ li {
 a {
     text-decoration: none;
     color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 a:hover {
+    color: purple;
+}
+
+a.active {
     color: purple;
 }
 

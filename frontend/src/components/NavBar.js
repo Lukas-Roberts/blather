@@ -10,13 +10,14 @@ const NavBar = (props) => {
             {props.loggedIn ? 
                 <ul>
                     <li><NavLink to='/home'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
-                    <li><NavLink to='/home'>Profile</NavLink></li>
+                    <li><NavLink to='/home' className='links'><strong>Home</strong></NavLink></li><br/>
+                    <li><NavLink to='/profile'><strong>Profile</strong></NavLink></li>
                 </ul>
                 :
                 <ul>
                     <li><NavLink to='/'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
-                    <li><NavLink to='/login'>Log In</NavLink></li><br/>
-                    <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                    <li><NavLink to='/login'><strong>Log In</strong></NavLink></li><br/>
+                    <li><NavLink to='/signup'><strong>Sign Up</strong></NavLink></li>
                 </ul>
             }
         </div>

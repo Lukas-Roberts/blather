@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../css/Feed.css';
 
-const Feed = (props) => (
-    <div className='feed'>
-        {props.feed.map(bleat => {
+const Profile = (props) => (
+    <div className='profile'>
+        {props.bleats.map(bleat => {
             return(
                 <div className='bleat'>
                     <h5 className='name'>{bleat.user.full_name}</h5>
@@ -18,8 +18,8 @@ const Feed = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        feed: state.user.feed
+        bleats: state.user.bleats
     }
 }
 
-export default connect(mapStateToProps)(Feed)
+export default connect(mapStateToProps)(Profile)

@@ -10,6 +10,7 @@ import SignupForm from './components/Signup/SignupForm';
 import LoginForm from './components/Login/LoginForm';
 import HomeContainer from './containers/HomeContainer';
 import NavBar from './components/NavBar'
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
 
           <Route path='/home'>
             <HomeContainer />
+          </Route>
+
+          <Route path='/profile'>
+            <Profile />
           </Route>
 
         </Switch>
