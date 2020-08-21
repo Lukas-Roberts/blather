@@ -24,6 +24,9 @@ class SessionsController < ApplicationController
                                 only: [:username, :full_name]
                             }
                         }
+                    },
+                    bleats: {
+                        only: :content
                     }
                 ]
                     

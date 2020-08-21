@@ -1,7 +1,14 @@
 li {
-    
-    
     padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: purple;
 }
 
 @media only screen and (min-width: 1214px) {
@@ -30,6 +37,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0;
 }
 
 .navbarLogo {
