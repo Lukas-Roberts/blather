@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class BleatInput extends Component {
+class BleatInput extends Component {
 
     state = {
         content: ''
@@ -23,7 +24,7 @@ export default class BleatInput extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify({content: this.state.content, user_id: this.props.user_id})
         })
         .then(resp => resp.json())
         .then(json => console.log(json))
@@ -41,3 +42,11 @@ export default class BleatInput extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user_id: state.user.id
+    }
+}
+
+export default connect(mapStateToProps)(BleatInput)
