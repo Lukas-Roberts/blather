@@ -12,20 +12,8 @@ class BleatInput extends Component {
         this.setState({
             content: event.target.value
         })
-        this.searchDatabase(event)
     }
 
-    searchDatabase = (event) => {
-        let search = event.target.value
-        let result = fetch(`http://localhost:3001/users/${search}`, {
-            method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-        })
-            .then(resp => resp.json())
-            .then(json => console.log(json))
-    }
 
     handleSubmit = event => {
         event.preventDefault()

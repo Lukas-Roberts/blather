@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-        render json: @users, only: [:username, :first_name]
+        render json: @users, only: [:username, :full_name]
     end
 
     def create

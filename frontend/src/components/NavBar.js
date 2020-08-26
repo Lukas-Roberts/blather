@@ -11,7 +11,8 @@ const NavBar = (props) => {
                 <ul>
                     <li><NavLink to='/home'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
                     <li><NavLink to='/home'><strong>Home</strong></NavLink></li><br/>
-                    <li><NavLink to='/profile'><strong>Profile</strong></NavLink></li>
+                    <li><NavLink to='/profile'><strong>Profile</strong></NavLink></li><br/>
+                    <li><NavLink to='/explore'><strong>Explore</strong></NavLink></li>
                 </ul>
                 :
                 <ul>

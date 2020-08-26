@@ -11,6 +11,7 @@ import LoginForm from './components/Login/LoginForm';
 import HomeContainer from './containers/HomeContainer';
 import NavBar from './components/NavBar'
 import ProfileContainer from './containers/ProfileContainer';
+import Explore from './components/Explore';
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
 
           <Route path='/profile'>
             <ProfileContainer />
+          </Route>
+
+          <Route path='/explore'>
+            <Explore />
           </Route>
 
         </Switch>
