@@ -4,15 +4,15 @@ import '../css/ProfileContainer.css';
 
 const Profile = (props) => (
     <div className='profile'>
-        {props.bleats.map(bleat => {
-            return(
-                <div className='bleat'>
-                    <h5 className='name'>{bleat.user.full_name}</h5>
-                    <h5 className='username'>{` @${bleat.user.username}`}</h5>
-                    <p>{bleat.content}</p>
-                </div>
-            )
-        })}
+        {props.bleats.reverse().map(bleat => {
+        return(
+            <div className='bleat'>
+                <h5 className='name'>{bleat.user.full_name}</h5>
+                <h5 className='username'>{` @${bleat.user.username}`}</h5>
+                <p>{bleat.content}</p>
+            </div>
+        )
+    })}
     </div>
 )
 

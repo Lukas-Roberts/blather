@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createBleat } from '../../actions/bleatActions'
 
 class BleatInput extends Component {
 
@@ -11,6 +12,19 @@ class BleatInput extends Component {
         this.setState({
             content: event.target.value
         })
+        this.searchDatabase(event)
+    }
+
+    searchDatabase = (event) => {
+        let search = event.target.value
+        let result = fetch(`http://localhost:3001/users/${search}`, {
+            method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+        })
+            .then(resp => resp.json())
+            .then(json => console.log(json))
     }
 
     handleSubmit = event => {
@@ -18,17 +32,7 @@ class BleatInput extends Component {
         this.setState({
             content: ''
         })
-        fetch('http://localhost:3001/bleats', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({content: this.state.content, user_id: this.props.user_id})
-        })
-        .then(resp => resp.json())
-        .then(json => console.log(json))
-        .catch(error => console.log(error))
+        this.props.createBleat({user_id: this.props.user_id, content: this.state.content})
     }
 
     render () {
@@ -49,4 +53,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(BleatInput)
+const mapDispatchToProps = dispatch => {
+    return {
+        createBleat: bleat => {dispatch(createBleat(bleat))}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BleatInput)

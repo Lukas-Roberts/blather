@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
 
     def create
         user = User.find_by(username: params[:user][:username])
-        puts params
         if user && user.authenticate(params[:user][:password])
             log_in(user)
             render json: user,

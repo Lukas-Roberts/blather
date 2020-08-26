@@ -12,26 +12,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(id: params[:id])
-        user.getFeed
-        render json: user,
-            only: [:username, :first_name],
-            include: {
-                followers: {
-                    only: :username
-                },
-                following: {
-                    only: :username
-                },
-                feed: {
-                    only: [:user_id, :content],
-                    include: {
-                        user: {
-                            only: [:username, :first_name]
-                        }
-                    }
-                }
-            }            
+        puts params
+        users = User.where('username LIKE :username OR full_name LIKE :full_name', {username: "#{params[:id]}%", full_name: "#{params[:id]}%"})
+        render json: users        
     end
 
 end

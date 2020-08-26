@@ -6,9 +6,15 @@ class BleatsController < ApplicationController
     end
 
     def create
-        bleat = Bleat.create(user_id: params[:user_id], content: params[:content])
-        render json: bleat
+        bleat_params = params[:bleat]
+        bleat = Bleat.create(user_id: bleat_params[:user_id], content: bleat_params[:content])
+        @user = User.find_by(id: session[:user_id])
+        render json: bleat,
+            only: :content,
+            include: [
+                user: {
+                    only: [:username, :full_name]
+                }
+            ]
     end
-
-
 end
