@@ -20,6 +20,18 @@ a.active {
     color: purple;
 }
 
+button.link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+button.link:hover {
+    color: purple
+}
+
 @media only screen and (min-width: 1214px) {
 .navbar {
     float: left;
@@ -66,7 +78,7 @@ li {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
     }
 
     ul {

@@ -28,8 +28,6 @@ export default function loginReducer(state= {user: null, loggedIn:false}, action
             }
 
         case CREATE_BLEAT:
-            console.log(action)
-            console.log(state.user)
             return {
                 ...state,
                 user: {

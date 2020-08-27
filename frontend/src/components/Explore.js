@@ -12,14 +12,14 @@ class Explore extends Component {
             [event.target.name]: event.target.value,
             results: []
         })
-        if(event.target.value != ''){
+        if(event.target.value !== ''){
             this.searchDatabase(event)
         }
     }
 
     searchDatabase = (event) => {
         let search = event.target.value
-        let result = fetch(`http://localhost:3001/users/${search}`, {
+        fetch(`http://localhost:3001/users/${search}`, {
             method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
