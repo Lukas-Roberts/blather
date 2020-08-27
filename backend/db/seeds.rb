@@ -8,16 +8,16 @@
 password = 'password'
 
 #------------- CREATED USERS -------------#
-tom = User.create(username: 'theRealTomHolland', password: password, password_confirmation: password, email: 'tomholland@gmail.com', first_name: 'Tom', last_name: 'Holland', full_name: 'Tom Holland')
-jen = User.create(username: 'notRachelGreen', password: password, password_confirmation: password, email: 'jenaniston@gmail.com', first_name: 'Jennifer', last_name: 'Aniston', full_name: 'Jennifer Aniston')
-emma = User.create(username: 'theRealHester', password: password, password_confirmation: password, email: 'hesterprinn@gmail.com', first_name: 'Emma', last_name: 'Stone', full_name: 'Emma Stone')
-iliza = User.create(username: 'anElderMillenial', password: password, password_confirmation: password, email: 'elderiliza@gmail.com', first_name: 'Iliza', last_name: 'Shlesinger', full_name: 'Iliza Shlesinger')
-tiff = User.create(username: 'ohSheReady', password: password, password_confirmation: password, email: 'tiffhaddish@gmail.com', first_name: 'Tiffany', last_name: 'Haddish', full_name: 'Tiffany Haddish')
-sarah = User.create(username: 'theRealSJP', password: password, password_confirmation: password, email: 'sarahjessica@gmail.com', first_name: 'Sarah', last_name: 'JessicaParker', full_name: 'Sarah JessicaParker')
-zen = User.create(username: 'ZENDAYA', password: password, password_confirmation: password, email: 'zendaya@gmail.com', first_name: 'Zendaya', last_name: 'Unknown', full_name: 'Zendaya Unknown')
-finn = User.create(username: 'tooFinn', password: password, password_confirmation: password, email: 'finnwolfy@gmail.com', first_name: 'Finn', last_name: 'Wolfhart', full_name: 'Finn Wolfhart')
-jimmy = User.create(username: 'whereIsJustin', password: password, password_confirmation: password, email: 'jimmyfallon@gmail.com', first_name: 'Jimmy', last_name: 'Fallon', full_name: 'Jimmy Fallon')
-taylor = User.create(username: 'wolfNotShark', password: password, password_confirmation: password, email: 'secondtaylor@gmail.com', first_name: 'Taylor', last_name: 'Lautner', full_name: 'Taylor Lautner')
+tom = User.create(username: 'theRealTomHolland', password: password, password_confirmation: password, email: 'tomholland@gmail.com', name: 'Tom Holland')
+jen = User.create(username: 'notRachelGreen', password: password, password_confirmation: password, email: 'jenaniston@gmail.com', name: 'Jennifer Aniston')
+emma = User.create(username: 'theRealHester', password: password, password_confirmation: password, email: 'hesterprinn@gmail.com', name: 'Emma Stone')
+iliza = User.create(username: 'anElderMillenial', password: password, password_confirmation: password, email: 'elderiliza@gmail.com', name: 'Iliza Shlesinger')
+tiff = User.create(username: 'ohSheReady', password: password, password_confirmation: password, email: 'tiffhaddish@gmail.com', name: 'Tiffany Haddish')
+sarah = User.create(username: 'theRealSJP', password: password, password_confirmation: password, email: 'sarahjessica@gmail.com', name: 'Sarah Jessica Parker')
+zen = User.create(username: 'ZENDAYA', password: password, password_confirmation: password, email: 'zendaya@gmail.com', name: 'Zendaya')
+finn = User.create(username: 'tooFinn', password: password, password_confirmation: password, email: 'finnwolfy@gmail.com', name: 'Finn Wolfhart')
+jimmy = User.create(username: 'whereIsJustin', password: password, password_confirmation: password, email: 'jimmyfallon@gmail.com', name: 'Jimmy Fallon')
+taylor = User.create(username: 'wolfNotShark', password: password, password_confirmation: password, email: 'secondtaylor@gmail.com', name: 'Taylor Lautner')
 #---------------------------#
 
 
@@ -25,7 +25,7 @@ taylor = User.create(username: 'wolfNotShark', password: password, password_conf
 tom1 = Bleat.create(user_id: 1, content: "IT'S ME, SPIDERMAN!")
 jen1 = Bleat.create(user_id: 2, content: 'We were so not on a break!')
 emma1 = Bleat.create(user_id: 3, content: 'I gotta pocket, gotta pocket full of sunshine.')
-iliza1 = Bleat.create(user_id: 4, content: 'Get over here blanche!')
+iliza1 = Bleat.create(user_id: 4, content: 'Get over here, Blanche!')
 tiff1 = Bleat.create(user_id: 5, content: "Hi, I'm Tiffany.")
 sarah1 = Bleat.create(user_id: 6, content: 'I need to catch up on my blog...')
 zen1 = Bleat.create(user_id: 7, content: "Why don't we rewrite the stars?")

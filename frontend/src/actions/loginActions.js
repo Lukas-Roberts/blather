@@ -32,8 +32,7 @@ export const createUser = (user) => {
                 password: user.password,
                 passwordConfirmation: user.passwordConfirmation,
                 email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName
+                name: user.name
             }}
             const response = await fetch('http://localhost:3001/users', {
                     method: "POST",

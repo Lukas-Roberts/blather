@@ -20,7 +20,7 @@ class Bio extends Component {
     render() {
         return(
             <div className='bio'>
-                <h3>{this.props.user.full_name}</h3>
+                <h3>{this.props.user.name}</h3>
                 <h4>@{this.props.user.username}</h4>
                 <h4>{this.followingCount()} {this.followersCount()}</h4>
             </div>

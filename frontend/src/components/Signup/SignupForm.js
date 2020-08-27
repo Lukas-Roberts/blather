@@ -29,8 +29,7 @@ class SignupForm extends Component {
             password: '',
             passwordConfirmation: '',
             email: '',
-            firstName: '',
-            lastName: ''
+            name: ''
         })    
     }
 
@@ -46,8 +45,7 @@ class SignupForm extends Component {
                     <input type='password' onChange={this.handleChange} name='password' placeholder='Password' value={this.state.password}/>
                     <input type='password' onChange={this.handleChange} name='passwordConfirmation' placeholder='Confirm Password' value={this.state.passwordConfirmation}/>
                     <input onChange={this.handleChange} name='email' placeholder='Email' value={this.state.email}/>
-                    <input onChange={this.handleChange} name='firstName' placeholder='First Name' value={this.state.firstName}/>
-                    <input onChange={this.handleChange} name='lastName' placeholder='Last Name' value={this.state.lastName}/>
+                    <input onChange={this.handleChange} name='name' placeholder='Name' value={this.state.name}/>
                     <button type='submit'><strong>Join</strong></button>
                 </form>
             </div>

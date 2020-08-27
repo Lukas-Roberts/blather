@@ -28,29 +28,31 @@ class Explore extends Component {
             .then(resp => resp.json())
             .then(json => json.forEach(result => {
                     this.setState({
-                        results: [...this.state.results, [`${result.full_name} @${result.username}`, result.id]]
+                        results: [...this.state.results, [`${result.name} @${result.username}`, result.id]]
                     })
                 })
             )
     }
 
-    handleSubmit = event => {
+    handleClick = event => {
         event.preventDefault()
         console.log(event.target.value)
+        fetch(`http://localhost:3001/users/${event.target.value}`)
+            .then(resp => resp.json())
+            .then(json => console.log(json))
     }
 
     render() {
         return (
             this.props.loggedIn ?
             <div className='search'>
-                <form onSubmit={this.handleSubmit}>
+                <form>
                     <input onChange={this.handleChange} name='query' placeholder='Explore' value={this.state.query}/>
-                    <button type='submit'>Search</button>
                     {this.state.results ?
                         this.state.results.map(result => {
                             return(
                                 <div className='results'>
-                                    <p>{result[1]}</p>
+                                    <button onClick={this.handleClick} value={result[1]}>{result[0]}</button>
                                 </div>
                             )
                         })

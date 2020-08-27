@@ -13,7 +13,7 @@ class BleatsController < ApplicationController
             only: :content,
             include: [
                 user: {
-                    only: [:username, :full_name]
+                    only: [:username, :name]
                 }
             ]
     end
