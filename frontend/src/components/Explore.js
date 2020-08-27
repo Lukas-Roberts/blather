@@ -28,7 +28,7 @@ class Explore extends Component {
             .then(resp => resp.json())
             .then(json => json.forEach(result => {
                     this.setState({
-                        results: [...this.state.results, [`${result.full_name} @${result.username}`]]
+                        results: [...this.state.results, [`${result.full_name} @${result.username}`, result.id]]
                     })
                 })
             )
@@ -50,7 +50,7 @@ class Explore extends Component {
                         this.state.results.map(result => {
                             return(
                                 <div className='results'>
-                                    <p>{result}</p>
+                                    <p>{result[1]}</p>
                                 </div>
                             )
                         })

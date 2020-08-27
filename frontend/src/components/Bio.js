@@ -22,17 +22,9 @@ class Bio extends Component {
             <div className='bio'>
                 <h3>{this.props.user.full_name}</h3>
                 <h4>@{this.props.user.username}</h4>
-                <h4>{this.followingCount()}</h4>
-                <h4>{this.followersCount()}</h4>
+                <h4>{this.followingCount()} {this.followersCount()}</h4>
             </div>
         )
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        user: state.user,
-        queryUser: state.queryUser
     }
 }
 
@@ -44,4 +36,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bio);
+export default connect(null, mapDispatchToProps)(Bio);

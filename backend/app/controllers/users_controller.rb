@@ -13,8 +13,13 @@ class UsersController < ApplicationController
 
     def show
         puts params
-        users = User.where('username LIKE :username OR full_name LIKE :full_name', {username: "#{params[:id]}%", full_name: "#{params[:id]}%"})
-        render json: users        
+        if params[:id].instance_of?(String)
+            users = User.where('username LIKE :username OR full_name LIKE :full_name', {username: "#{params[:id]}%", full_name: "#{params[:id]}%"})
+            render json: users            
+        else
+            user = User.find_by(id: params[:id])
+            render json: user
+        end       
     end
 
 end

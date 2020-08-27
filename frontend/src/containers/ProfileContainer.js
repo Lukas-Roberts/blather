@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 const ProfileContainer = (props) => (
     props.loggedIn ?
     <div className='profileContainer'>
-        <Bio />
+        <Bio user={props.user}/>
         <Profile />
     </div>
     :
@@ -17,7 +17,8 @@ const ProfileContainer = (props) => (
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.loggedIn
+        loggedIn: state.loggedIn,
+        user: state.user
     }
 }
 

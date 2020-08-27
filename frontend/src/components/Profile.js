@@ -4,7 +4,7 @@ import '../css/ProfileContainer.css';
 
 const Profile = (props) => (
     <div className='profile'>
-        {props.bleats.reverse().map(bleat => {
+        {props.bleats.map(bleat => {
         return(
             <div className='bleat'>
                 <h5 className='name'>{bleat.user.full_name}</h5>
@@ -12,7 +12,7 @@ const Profile = (props) => (
                 <p>{bleat.content}</p>
             </div>
         )
-    })}
+    }).reverse()}
     </div>
 )
 

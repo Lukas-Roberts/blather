@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 const HomeContainer = (props) => (
     props.loggedIn ?
     <div className='home'>
-        <BleatInput />
+        <BleatInput /><br/>
         <Feed />
     </div>
     :
