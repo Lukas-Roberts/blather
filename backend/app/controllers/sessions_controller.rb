@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
                         only: :username
                     },
                     following: {
-                        only: :username
+                        only: :username   
                     },
                     feed: {
                         only: [:user_id, :content],

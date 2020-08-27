@@ -1,6 +1,7 @@
 import {
     SET_USER,
-    CLEAR_USER
+    CLEAR_USER,
+    FOLLOW_USER
 } from '../actionTypes/index'
 
 export function setUser(userObj) {
@@ -13,5 +14,11 @@ export function setUser(userObj) {
 export function clearUser() {
     return {
         type: CLEAR_USER
+    }
+}
+
+export function followUser() {
+    return {
+        type: FOLLOW_USER
     }
 }

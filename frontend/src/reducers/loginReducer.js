@@ -1,7 +1,8 @@
 import {
     SET_USER,
     CLEAR_USER,
-    CREATE_BLEAT
+    CREATE_BLEAT,
+    FOLLOW_USER
 } from '../actionTypes/index';
 
 export default function loginReducer(state= {user: null, loggedIn:false}, action) {
@@ -41,6 +42,11 @@ export default function loginReducer(state= {user: null, loggedIn:false}, action
                         ...state.user.feed
                     ]
                 }
+            }
+
+        case FOLLOW_USER:
+            return {
+                ...state
             }
 
         default:

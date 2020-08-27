@@ -19,7 +19,10 @@ class User < ApplicationRecord
             n = u.bleats.reverse()
             feed << n
         end
-        user.feed = feed.flatten.sort{|a, b| a.created_at <=> b.created_at}
+        user.bleats.each do |b|
+            feed << b
+        end
+        user.feed = feed.flatten.sort{|a, b| b.created_at <=> a.created_at}
         user.save
     end 
         
