@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../css/ProfileContainer.css';
+import BleatOptions from './BleatOptions'
 
 const Profile = (props) => {
     console.log(props.bleats)
@@ -12,6 +13,7 @@ const Profile = (props) => {
                         <h5 className='name'>{bleat.user.name}</h5>
                         <h5 className='username'>{` @${bleat.user.username}`}</h5>
                         <p>{bleat.content}</p>
+                        {<BleatOptions bleat={bleat} />}
                     </div>
                 )
             }).reverse()}
