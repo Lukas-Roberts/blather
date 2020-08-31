@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :bleats
   resources :users
   get '/login', to: 'sessions#new'
