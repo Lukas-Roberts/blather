@@ -7,9 +7,8 @@ const Feed = (props) => {
     return props.feed.length !== 0 ?
         (<div className='feed'>
             {props.feed.map(bleat => {
-                console.log(bleat)
                 return(
-                    <div className='bleat'>
+                    <div className='bleat' key={bleat.id}>
                         <h5 className='name'>{bleat.user.name}</h5>
                         <h5 className='username'>{` @${bleat.user.username}`}</h5>
                         <p>{bleat.content}</p>

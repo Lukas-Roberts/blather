@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { queryUsers, getSelectedUser, clearSelectedUser } from '../actions/userActions'
 import { Redirect } from 'react-router-dom';
 
 class Explore extends Component {
@@ -9,50 +10,36 @@ class Explore extends Component {
 
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value,
-            results: []
+            [event.target.name]: event.target.value
         })
         if(event.target.value !== ''){
-            this.searchDatabase(event)
+            this.props.queryUsers(event.target.value)
         }
-    }
-
-    searchDatabase = (event) => {
-        let search = event.target.value
-        fetch(`http://localhost:3001/users/${search}`, {
-            method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-        })
-            .then(resp => resp.json())
-            .then(json => json.forEach(result => {
-                    this.setState({
-                        results: [...this.state.results, [`${result.name} @${result.username}`, result.id]]
-                    })
-                })
-            )
     }
 
     handleClick = event => {
         event.preventDefault()
-        console.log(event.target.value)
-        fetch(`http://localhost:3001/users/${event.target.value}`)
-            .then(resp => resp.json())
-            .then(json => console.log(json))
+        this.props.getSelectedUser(event.target.value)
+    }
+
+    componentDidMount() {
+        this.props.clearSelectedUser()
     }
 
     render() {
-        return (
+        return this.props.selectedUser ?
+        (<Redirect to={`/explore/user/${this.props.selectedUser.id}`} />)
+        :
+         (
             this.props.loggedIn ?
             <div className='search'>
                 <form>
                     <input onChange={this.handleChange} name='query' placeholder='Explore' value={this.state.query}/>
-                    {this.state.results ?
-                        this.state.results.map(result => {
+                    {this.props.results ?
+                        this.props.results.map(result => {
                             return(
                                 <div className='results'>
-                                    <button onClick={this.handleClick} value={result[1]}>{result[0]}</button>
+                                    <button onClick={this.handleClick} value={result.id}>{`${result.name} @${result.username}`}</button>
                                 </div>
                             )
                         })
@@ -69,8 +56,15 @@ class Explore extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.loggedIn
+        loggedIn: state.loggedIn,
+        results: state.results,
+        selectedUser: state.selectedUser
     }
 }
 
-export default connect(mapStateToProps)(Explore)
+const mapDispatchToProps = dispatch => ({
+    queryUsers: query => {dispatch(queryUsers(query))},
+    getSelectedUser: userId => {dispatch(getSelectedUser(userId))},
+    clearSelectedUser: () => dispatch(clearSelectedUser())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Explore)

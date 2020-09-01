@@ -13,7 +13,6 @@ class Bio extends Component {
     }
 
     followingCount = () => {
-        console.log(this.props.user.following)
         return `${this.props.user.following.length} Following`
     }
 

@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_08_28_200914) do
     t.string "content"
     t.integer "likes", default: 0
     t.integer "comments_count", default: 0
-    t.integer "rebleats_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -5,7 +5,6 @@ class CreateBleats < ActiveRecord::Migration[6.0]
       t.string :content
       t.integer :likes, :default => 0
       t.integer :comments_count, :default => 0
-      t.integer :rebleats_count, :default => 0
 
       t.timestamps
     end

@@ -2,10 +2,14 @@ import {
     SET_USER,
     CLEAR_USER,
     CREATE_BLEAT,
-    FOLLOW_USER
+    FOLLOW_USER,
+    SET_SELECTED_USER,
+    CLEAR_SELECTED_USER,
+    SET_SELECTED_BLEAT,
+    SET_RESULTS
 } from '../actionTypes/index';
 
-export default function loginReducer(state= {user: null, loggedIn:false}, action) {
+export default function loginReducer(state= {user: null, loggedIn: false, selectedUser: null, selectedBleat: null}, action) {
     switch(action.type) {
         case SET_USER:
             if(action.payload.username){
@@ -25,7 +29,9 @@ export default function loginReducer(state= {user: null, loggedIn:false}, action
             return {
                 ...state,
                 user: null,
-                loggedIn: false
+                loggedIn: false,
+                selectedUser: null,
+                selectedBleat: null
             }
 
         case CREATE_BLEAT:
@@ -47,6 +53,30 @@ export default function loginReducer(state= {user: null, loggedIn:false}, action
         case FOLLOW_USER:
             return {
                 ...state
+            }
+        
+        case SET_RESULTS:
+            return {
+                ...state,
+                results: action.payload
+            }
+
+        case SET_SELECTED_USER:
+            return {
+                ...state,
+                selectedUser: action.payload
+            }
+
+        case CLEAR_SELECTED_USER:
+            return {
+                ...state,
+                selectedUser: null
+            }
+
+        case SET_SELECTED_BLEAT:
+            return {
+                ...state,
+                selectedBleat: action.payload
             }
 
         default:

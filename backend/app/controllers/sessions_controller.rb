@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
                         only: :username   
                     },
                     feed: {
-                        only: [:user_id, :content, :likes, :comments_count, :rebleats_count],
+                        only: [:user_id, :content, :likes, :comments_count, :id],
                         include: {
                             user: {
                                 only: [:username, :name]
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
                         }
                     },
                     bleats: {
-                        only: [:content, :likes, :comment_count, :rebleat_count],
+                        only: [:content, :likes, :comments_count],
                         include: {
                             user: {
                                 only: [:username, :name]

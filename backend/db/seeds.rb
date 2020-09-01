@@ -22,7 +22,7 @@ taylor = User.create(username: 'wolfNotShark', password: password, password_conf
 
 
 #------------- CREATED BLEATS -------------#
-tom1 = Bleat.create(user_id: 1, content: "IT'S ME, SPIDERMAN!", likes: 0)
+tom1 = Bleat.create(user_id: 1, content: "IT'S ME, SPIDERMAN!")
 jen1 = Bleat.create(user_id: 2, content: 'We were so not on a break!')
 emma1 = Bleat.create(user_id: 3, content: 'I gotta pocket, gotta pocket full of sunshine.')
 iliza1 = Bleat.create(user_id: 4, content: 'Get over here, Blanche!')

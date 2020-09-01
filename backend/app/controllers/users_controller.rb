@@ -40,7 +40,38 @@ class UsersController < ApplicationController
     def show
         if (params[:id][0] =~ /[[:digit:]]/)
             user = User.find_by(id: params[:id])
-            render json: user          
+            render json: user,
+            only: [:username, :id, :name],
+            include: [
+                followers: {
+                    only: :username
+                },
+                following: {
+                    only: :username   
+                },
+                feed: {
+                    only: [:user_id, :content, :likes, :comments_count, :id],
+                    include: {
+                        user: {
+                            only: [:username, :name]
+                        },
+                        comments: {
+                            only: :content
+                        }
+                    }
+                },
+                bleats: {
+                    only: [:content, :likes, :comments_count],
+                    include: {
+                        user: {
+                            only: [:username, :name]
+                        },
+                        comments: {
+                            only: :content
+                        }
+                    }
+                }
+            ]         
         else
             users = User.where('username LIKE :username OR name LIKE :name', {username: "#{params[:id]}%", name: "#{params[:id]}%"})
             render json: users 

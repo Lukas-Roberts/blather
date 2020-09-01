@@ -1,13 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import '../css/ProfileContainer.css';
 import BleatOptions from './BleatOptions'
 
 const Profile = (props) => {
-    console.log(props.bleats)
-    return props.bleats.length !== 0 ?
+    return props.user.bleats ?
         <div className='profile'>
-            {props.bleats.map(bleat => {
+            {props.user.bleats.map(bleat => {
                 return(
                     <div className='bleat'>
                         <h5 className='name'>{bleat.user.name}</h5>
@@ -24,10 +22,4 @@ const Profile = (props) => {
         </div>
 }
 
-const mapStateToProps = (state) => {
-    return {
-        bleats: state.user.bleats
-    }
-}
-
-export default connect(mapStateToProps)(Profile)
+export default Profile;
