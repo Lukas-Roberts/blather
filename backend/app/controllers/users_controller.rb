@@ -61,7 +61,7 @@ class UsersController < ApplicationController
                     }
                 },
                 bleats: {
-                    only: [:content, :likes, :comments_count],
+                    only: [:user_id, :content, :likes, :comments_count, :id],
                     include: {
                         user: {
                             only: [:username, :name]

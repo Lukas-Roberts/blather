@@ -14,17 +14,23 @@ class BleatsController < ApplicationController
             include: [
                 user: {
                     only: [:username, :name]
-                },
-                include: {
-                    comments: [
-                        only: content:,
-                        include: {
-                            user: {
-                                only: :username
-                            }
-                        }
-                    ]
                 }
             ]
+    end
+
+    def show
+        bleat = Bleat.find_by(id: params[:id])
+        render json: bleat,
+            only: [:user_id, :content, :likes, :comments_count, :id],
+            include: {
+                user: {
+                    only: [:username, :name]
+                },
+                comments: {
+                    only: :content
+                }
+            }
+            
+            
     end
 end

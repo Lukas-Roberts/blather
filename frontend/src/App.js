@@ -13,12 +13,11 @@ import HomeContainer from './containers/HomeContainer';
 import NavBar from './components/NavBar'
 import ProfileContainer from './containers/ProfileContainer';
 import Explore from './components/Explore';
+import BleatPage from './components/BleatPage';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends Component {
   render() {
-
-  
     return (
       <Router>
         <NavBar/>
@@ -40,7 +39,7 @@ class App extends Component {
               <HomeContainer />
             </Route>
 
-            <Route path='/profile'>
+            <Route exact path='/profile'>
               <ProfileContainer user={this.props.user}/>
             </Route>
 
@@ -52,8 +51,8 @@ class App extends Component {
               {this.props.selectedUser ? <ProfileContainer user={this.props.selectedUser}/> : <Redirect to='/explore' />}
             </Route>
 
-            <Route path='/bleat/:id'>
-              {this.props.selectedBleat ? <SignupForm bleat={this.props.selectedBleat}/> : <Redirect to='/explore' />}
+            <Route exact path='/bleat/:id'>
+              {this.props.selectedBleat ? <BleatPage bleat={this.props.selectedBleat}/> : <Redirect to='/home' />}
             </Route>
 
           </Switch>

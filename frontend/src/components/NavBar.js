@@ -17,8 +17,8 @@ class NavBar extends Component {
                 {this.props.loggedIn ? 
                     <ul>
                         <li><NavLink to='/home'><img src={sheep} alt='sheep' className='navbarLogo'/></NavLink></li><br/>
-                        <li><NavLink to='/home'><strong>Home</strong></NavLink></li><br/>
-                        <li><NavLink to='/profile'><strong>Profile</strong></NavLink></li><br/>
+                        <li><NavLink exact to='/home'><strong>Home</strong></NavLink></li><br/>
+                        <li><NavLink exact to='/profile'><strong>Profile</strong></NavLink></li><br/>
                         <li><NavLink exact to='/explore'><strong>Explore</strong></NavLink></li><br/>
                         <li><button className='linkNav' onClick={this.handleClick}><strong>Logout</strong></button></li>
                     </ul>

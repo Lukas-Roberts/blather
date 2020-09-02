@@ -13,7 +13,7 @@ class BleatOptions extends Component {
 
     handleComment = (event) => {
         event.preventDefault()
-        getSelectedBleat(event.target.value)
+        this.props.getSelectedBleat(event.target.value)
     }
     
     render() {
@@ -27,7 +27,6 @@ class BleatOptions extends Component {
             </div>
         )
     }
-    
 }
 
 const mapStateToProps = state => {
@@ -39,4 +38,5 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     getSelectedBleat: bleatId => {dispatch(getSelectedBleat(bleatId))}
 })
+
 export default connect(mapStateToProps, mapDispatchToProps)(BleatOptions);

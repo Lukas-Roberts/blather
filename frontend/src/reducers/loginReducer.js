@@ -6,6 +6,7 @@ import {
     SET_SELECTED_USER,
     CLEAR_SELECTED_USER,
     SET_SELECTED_BLEAT,
+    CLEAR_SELECTED_BLEAT,
     SET_RESULTS
 } from '../actionTypes/index';
 
@@ -77,6 +78,12 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             return {
                 ...state,
                 selectedBleat: action.payload
+            }
+
+        case CLEAR_SELECTED_BLEAT:
+            return {
+                ...state,
+                selectedBleat: null
             }
 
         default:
