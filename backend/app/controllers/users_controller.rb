@@ -49,19 +49,8 @@ class UsersController < ApplicationController
                 following: {
                     only: :username   
                 },
-                feed: {
-                    only: [:user_id, :content, :likes, :comments_count, :id],
-                    include: {
-                        user: {
-                            only: [:username, :name]
-                        },
-                        comments: {
-                            only: :content
-                        }
-                    }
-                },
                 bleats: {
-                    only: [:user_id, :content, :likes, :comments_count, :id],
+                    only: [:user_id, :content, :likes, :id],
                     include: {
                         user: {
                             only: [:username, :name]

@@ -14,10 +14,28 @@ class CommentsController < ApplicationController
             only: :content,
             include: [
                 user: {
-                    only: [:username, :name]
+                    only: [:username, :id, :name],
+                    include: [
+                        followers: {
+                            only: :username,
+                            include: [
+                                bleats: {
+                                    only: :content
+                                }
+                            ]
+                        },
+                        following: {
+                            only: :username,
+                            include: [
+                                bleats: {
+                                    only: :content
+                                }
+                            ]   
+                        }
+                    ]
                 },
                 bleat: {
-                    only: [:user_id, :content, :likes, :comments_count, :id],
+                    only: [:user_id, :content, :likes, :id],
                     include: {
                         user: {
                             only: [:username, :name]
@@ -34,4 +52,10 @@ class CommentsController < ApplicationController
                 }
             ]
     end
+
+    def update
+        comment = Comment.find_by(id: params[:id])
+        comment.likes = comment.likes + 1
+        comment.save
+        render json: comment
 end

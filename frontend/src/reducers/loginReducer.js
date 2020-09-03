@@ -91,13 +91,7 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             console.log(action.payload)
             return {
                 ...state,
-                user: {
-                    ...state.user,
-                    comments: [
-                        action.payload,
-                        ...state.user.comments
-                    ]
-                },
+                user: action.payload.user,
                 selectedBleat: action.payload.bleat
             }
 
