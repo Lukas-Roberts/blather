@@ -27,7 +27,12 @@ class BleatsController < ApplicationController
                     only: [:username, :name]
                 },
                 comments: {
-                    only: :content
+                    only: :content,
+                    include: {
+                        user: {
+                            only: [:username, :name]
+                        }
+                    }
                 }
             }
             

@@ -7,6 +7,7 @@ import {
     CLEAR_SELECTED_USER,
     SET_SELECTED_BLEAT,
     CLEAR_SELECTED_BLEAT,
+    CREATE_COMMENT,
     SET_RESULTS
 } from '../actionTypes/index';
 
@@ -84,6 +85,20 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             return {
                 ...state,
                 selectedBleat: null
+            }
+
+        case CREATE_COMMENT:
+            console.log(action.payload)
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    comments: [
+                        action.payload,
+                        ...state.user.comments
+                    ]
+                },
+                selectedBleat: action.payload.bleat
             }
 
         default:

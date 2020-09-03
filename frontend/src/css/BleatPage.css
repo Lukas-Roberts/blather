@@ -1,0 +1,45 @@
+.bleatPageContainer {
+    text-align: center;
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bleatPage {
+    border-top: 1px solid lightgray;
+    margin: 0 40px;
+    padding: 0;
+    width: 55%;
+}
+
+.bleat {
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+.name {
+    margin: 0;
+    padding-left: 7px;
+    float: left;
+    color: lightgray;
+}
+
+.username {
+    clear: right;
+    display: flex;
+    justify-content: left;
+    padding-left: 7px;
+    margin: 0;
+}
+
+p {
+    clear: both;
+    color: gray;
+    margin: 16px 24px;
+    text-align: left;
+}

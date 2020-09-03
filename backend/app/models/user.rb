@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     has_many :bleats, dependent: :destroy
+    has_many :comments, dependent: :destroy
     has_many :following_users, foreign_key: "follower_id", dependent: :destroy
     has_many :follower_users, class_name: "FollowingUser", foreign_key: "following_id", dependent: :destroy
     has_many :followers, class_name: "User", through: :follower_users, foreign_key: "follower_id"

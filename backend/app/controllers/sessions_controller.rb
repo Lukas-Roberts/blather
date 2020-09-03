@@ -37,6 +37,25 @@ class SessionsController < ApplicationController
                                 only: :content
                             }
                         }
+                    },
+                    comments: {
+                        only: :content,
+                        include: [
+                            user: {
+                                only: [:username, :name]
+                            },
+                            bleat: {
+                                only: [:user_id, :content, :likes, :comments_count, :id],
+                                include: {
+                                    user: {
+                                        only: [:username, :name]
+                                    },
+                                    comments: {
+                                        only: :content
+                                    }
+                                }
+                            }
+                        ]
                     }
                 ]
                     
