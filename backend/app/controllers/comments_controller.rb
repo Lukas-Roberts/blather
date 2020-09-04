@@ -17,20 +17,34 @@ class CommentsController < ApplicationController
                     only: [:username, :id, :name],
                     include: [
                         followers: {
-                            only: :username,
-                            include: [
-                                bleats: {
-                                    only: :content
-                                }
-                            ]
+                            only: :username
                         },
                         following: {
                             only: :username,
                             include: [
                                 bleats: {
-                                    only: :content
+                                    only: [:content, :id, :user_id, :likes],
+                                    include: {
+                                        user: {
+                                            only: [:username, :name]
+                                        },
+                                        comments: {
+                                            only: :content
+                                        }
+                                    }
                                 }
                             ]   
+                        },
+                        bleats: {
+                            only: [:user_id, :content, :likes, :id],
+                            include: {
+                                user: {
+                                    only: [:username, :name]
+                                },
+                                comments: {
+                                    only: :content
+                                }
+                            }
                         }
                     ]
                 },
@@ -58,4 +72,5 @@ class CommentsController < ApplicationController
         comment.likes = comment.likes + 1
         comment.save
         render json: comment
+    end
 end

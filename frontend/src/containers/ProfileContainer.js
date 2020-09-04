@@ -11,8 +11,8 @@ class ProfileContainer extends Component {
         if(this.props.loggedIn){
             return (
                 <div className='profileContainer'>
-                    <Bio user={this.props.user}/>
-                    <Profile user={this.props.user}/>
+                    <Bio user={this.props.user} followers={this.props.followers} following={this.props.following}/>
+                    <Profile user={this.props.user} bleats={this.props.bleats}/>
                 </div>
             )
         }

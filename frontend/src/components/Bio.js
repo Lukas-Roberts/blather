@@ -9,11 +9,11 @@ class Bio extends Component {
     }
 
     followersCount = () => {
-        return `${this.props.user.followers.length} Followers`
+        return `${this.props.followers.length} Followers`
     }
 
     followingCount = () => {
-        return `${this.props.user.following.length} Following`
+        return `${this.props.following.length} Following`
     }
 
     render() {

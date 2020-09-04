@@ -14,18 +14,20 @@ class SessionsController < ApplicationController
                         only: :username
                     },
                     following: {
-                        only: :username   
-                    },
-                    feed: {
-                        only: [:user_id, :content, :likes, :id],
-                        include: {
-                            user: {
-                                only: [:username, :name]
-                            },
-                            comments: {
-                                only: :content
+                        only: :username,
+                        include: [
+                            bleats: {
+                                only: [:content, :id, :user_id, :likes],
+                                include: {
+                                    user: {
+                                        only: [:username, :name]
+                                    },
+                                    comments: {
+                                        only: :content
+                                    }
+                                }
                             }
-                        }
+                        ]   
                     },
                     bleats: {
                         only: [:user_id, :content, :likes, :id],

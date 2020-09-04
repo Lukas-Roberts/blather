@@ -17,7 +17,10 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             if(action.payload.username){
                return {
                     ...state,
-                    user: action.payload,
+                    user: {id: action.payload.id, name: action.payload.name, username:action.payload.name},
+                    followers: action.payload.followers,
+                    following: action.payload.following,
+                    bleats: action.payload.bleats,
                     loggedIn: true
                 } 
             }
@@ -31,25 +34,21 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             return {
                 ...state,
                 user: null,
+                followers: null,
+                following: null,
+                bleats: null,
                 loggedIn: false,
                 selectedUser: null,
+                selectedUserFollowers: null,
+                selectedUserFollowing: null,
+                selectedUserBleats: null,
                 selectedBleat: null
             }
 
         case CREATE_BLEAT:
             return {
                 ...state,
-                user: {
-                    ...state.user,
-                    bleats: [
-                        ...state.user.bleats,
-                        action.payload
-                    ],
-                    feed: [
-                        action.payload,
-                        ...state.user.feed
-                    ]
-                }
+                bleats: [action.payload, ...state.bleats]
             }
 
         case FOLLOW_USER:
@@ -64,15 +63,22 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             }
 
         case SET_SELECTED_USER:
+            console.log(action.payload)
             return {
                 ...state,
-                selectedUser: action.payload
+                selectedUser: {id: action.payload.id, name: action.payload.name, username: action.payload.username},
+                selectedUserFollowers: action.payload.followers,
+                selectedUserFollowing: action.payload.following,
+                selectedUserBleats: action.payload.bleats
             }
 
         case CLEAR_SELECTED_USER:
             return {
                 ...state,
-                selectedUser: null
+                selectedUser: null,
+                selectedUserFollowers: null,
+                selectedUserFollowing: null,
+                selectedUserBleats: null
             }
 
         case SET_SELECTED_BLEAT:
@@ -92,6 +98,8 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             return {
                 ...state,
                 user: action.payload.user,
+                following: action.payload.user.following,
+                bleats: action.payload.user.bleats,
                 selectedBleat: action.payload.bleat
             }
 

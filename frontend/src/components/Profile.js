@@ -3,9 +3,9 @@ import '../css/ProfileContainer.css';
 import BleatOptions from './BleatOptions'
 
 const Profile = (props) => {
-    return props.user.bleats ?
+    return props.bleats ?
         <div className='profile'>
-            {props.user.bleats.map(bleat => {
+            {props.bleats.map(bleat => {
                 return(
                     <div className='bleat'>
                         <h5 className='name'>{bleat.user.name}</h5>

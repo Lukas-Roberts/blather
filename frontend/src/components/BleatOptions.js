@@ -13,6 +13,7 @@ class BleatOptions extends Component {
 
     handleComment = (event) => {
         event.preventDefault()
+        console.log(event.target)
         this.props.getSelectedBleat(event.target.value)
     }
     
@@ -23,7 +24,7 @@ class BleatOptions extends Component {
         (
             <div className='bleatOptions'>
                 <button className='link' onClick={this.handleLike} value={this.props.bleat.id}>♡ {this.props.bleat.likes}</button>
-                <button className='link' onClick={this.handleComment} value={this.props.bleat.id}>&#x1F5E8;</button>
+                <button className='link' onClick={this.handleComment} value={this.props.bleat.id}>&#x1F5E8; {this.props.bleat.comments.length}</button>
             </div>
         )
     }

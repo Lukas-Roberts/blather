@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :comment_likes
+  resources :bleat_likes
   resources :comments
   resources :bleats
   resources :users

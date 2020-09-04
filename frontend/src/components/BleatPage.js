@@ -41,8 +41,8 @@ class BleatPage extends Component {
                         <h5 className='name'>{this.props.bleat.user.name}</h5>
                         <h5 className='username'>{` @${this.props.bleat.user.username}`}</h5>
                         <p>{this.props.bleat.content}</p>
-                        <form onSubmit={this.handleSubmit}>
-                            <input onChange={this.handleChange} name='comment' value={this.state.comment} placeholder='Comment'/>
+                        <form onSubmit={this.handleSubmit} className="textWrapper">
+                            <input className='comment' onChange={this.handleChange} onSubmit={this.handleSubmit} name='comment' value={this.state.comment} placeholder='Comment'/>
                         </form>
                         {this.props.bleat.comments.map(comment => {
                             return(

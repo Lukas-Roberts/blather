@@ -7,24 +7,11 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     has_many :bleats, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :bleat_likes, dependent: :destroy
+    has_many :comment_likes, dependent: :destroy
     has_many :following_users, foreign_key: "follower_id", dependent: :destroy
     has_many :follower_users, class_name: "FollowingUser", foreign_key: "following_id", dependent: :destroy
     has_many :followers, class_name: "User", through: :follower_users, foreign_key: "follower_id"
-    has_many :following, class_name: "User", through: :following_users, foreign_key: "following_id"
-    attr_accessor :feed
-
-    def getFeed
-        user = self
-        feed = []
-        user.following.each do |u|
-            n = u.bleats.reverse()
-            feed << n
-        end
-        user.bleats.each do |b|
-            feed << b
-        end
-        user.feed = feed.flatten.sort{|a, b| b.created_at <=> a.created_at}
-        user.save
-    end 
+    has_many :following, class_name: "User", through: :following_users, foreign_key: "following_id" 
         
 end

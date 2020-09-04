@@ -4,10 +4,21 @@ import { connect } from 'react-redux';
 import '../css/Feed.css';
 import BleatOptions from './BleatOptions'
 
+const getBleats = (props) => {
+    let arr = [...props.userBleats]
+    props.following.map(followings => {
+        followings.bleats.map(bleat => {
+            arr.push(bleat)
+        })
+    })
+    return arr.sort((a, b) => b.id - a.id)
+}
+
 const Feed = (props) => {
-    return props.feed.length !== 0 ?
+    return props.userBleats.length !== 0 ?
         (<div className='feed'>
-            {props.feed.map(bleat => {
+            {getBleats(props).map(bleat => {
+                console.log(bleat.id)
                 return(
                     <div className='bleat' key={bleat.id}>
                         <h5 className='name'>{bleat.user.name}</h5>
@@ -29,7 +40,8 @@ const Feed = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        feed: state.user.feed
+        userBleats: state.bleats,
+        following: state.following
     }
 }
 

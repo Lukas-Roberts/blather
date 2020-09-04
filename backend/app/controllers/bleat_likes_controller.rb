@@ -1,0 +1,2 @@
+class BleatLikesController < ApplicationController
+end

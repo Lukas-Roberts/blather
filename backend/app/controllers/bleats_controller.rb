@@ -10,10 +10,18 @@ class BleatsController < ApplicationController
         bleat = Bleat.create(user_id: bleat_params[:user_id], content: bleat_params[:content])
         @user = User.find_by(id: session[:user_id])
         render json: bleat,
-            only: [:content, :likes],
+            only: [:user_id, :content, :likes, :id],
             include: [
                 user: {
                     only: [:username, :name]
+                },
+                comments: {
+                    only: :content,
+                    include: {
+                        user: {
+                            only: [:username, :name]
+                        }
+                    }
                 }
             ]
     end

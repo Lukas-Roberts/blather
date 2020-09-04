@@ -43,3 +43,17 @@ p {
     margin: 16px 24px;
     text-align: left;
 }
+
+.comment {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: #282c34;
+    color: white;
+}
+
+.textWrapper {
+    padding: 0;
+    margin: 0;
+}

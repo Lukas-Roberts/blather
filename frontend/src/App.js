@@ -40,7 +40,7 @@ class App extends Component {
             </Route>
 
             <Route exact path='/profile'>
-              <ProfileContainer user={this.props.user}/>
+              <ProfileContainer user={this.props.user} followers={this.props.followers} following={this.props.following} bleats={this.props.bleats}/>
             </Route>
 
             <Route exact path='/explore'>
@@ -48,7 +48,7 @@ class App extends Component {
             </Route>
 
             <Route path='/explore/user/:id'>
-              {this.props.selectedUser ? <ProfileContainer user={this.props.selectedUser}/> : <Redirect to='/explore' />}
+              {this.props.selectedUser ? <ProfileContainer user={this.props.selectedUser} followers={this.props.selectedUserFollowers} following={this.props.selectedUserFollowing} bleats={this.props.selectedUserBleats}/> : <Redirect to='/explore' />}
             </Route>
 
             <Route exact path='/bleat/:id'>
@@ -65,7 +65,13 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
+    followers: state.followers,
+    following: state.following,
+    bleats: state.bleats,
     selectedUser: state.selectedUser,
+    selectedUserFollowers: state.selectedUserFollowers,
+    selectedUserFollowing: state.selectedUserFollowing,
+    selectedUserBleats: state.selectedUserBleats,
     selectedBleat: state.selectedBleat
   }
 }
