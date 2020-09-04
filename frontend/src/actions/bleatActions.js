@@ -1,6 +1,8 @@
 import {
     CREATE_BLEAT,
     DELETE_BLEAT,
+    LIKE_BLEAT,
+    UNLIKE_BLEAT,
     SET_SELECTED_BLEAT,
     CLEAR_SELECTED_BLEAT
 } from '../actionTypes/index'
@@ -45,5 +47,25 @@ export const getSelectedBleat = (bleatId) => {
 export const clearSelectedBleat = () => {
     return {
         type: CLEAR_SELECTED_BLEAT
+    }
+}
+
+export const likeBleat = (bleatLike) => {
+    return async function (dispatch) {
+        try{
+            const response = await fetch('http://localhost:3001/bleat_likes', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bleatLike)
+            })
+            const bleatLikeObj = await response.json()
+            dispatch({type: LIKE_BLEAT, payload: bleatLikeObj})
+        }
+        catch(data) {
+            console.log(data)
+        }
     }
 }

@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
                                         only: [:username, :name]
                                     },
                                     comments: {
-                                        only: :content
+                                        only: [:user_id, :content, :likes, :id]
                                     }
                                 }
                             }
@@ -36,28 +36,18 @@ class SessionsController < ApplicationController
                                 only: [:username, :name]
                             },
                             comments: {
-                                only: :content
+                                only: [:user_id, :content, :likes, :id]
                             }
                         }
                     },
                     comments: {
-                        only: :content,
-                        include: [
-                            user: {
-                                only: [:username, :name]
-                            },
-                            bleat: {
-                                only: [:user_id, :content, :likes, :id],
-                                include: {
-                                    user: {
-                                        only: [:username, :name]
-                                    },
-                                    comments: {
-                                        only: :content
-                                    }
-                                }
-                            }
-                        ]
+                        only: [:user_id, :content, :likes, :id]
+                    },
+                    bleat_likes: {
+                        only: :bleat_id
+                    },
+                    comment_likes: {
+                        only: :comment_id
                     }
                 ]
                     

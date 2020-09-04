@@ -10,3 +10,7 @@ button.link {
 button.link:hover {
     color: purple
 }
+
+.liked {
+    color: red;
+}

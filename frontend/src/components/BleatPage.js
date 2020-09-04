@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { clearSelectedBleat } from '../actions/bleatActions'
-import { addComment } from '../actions/commentActions'
+import { addComment, likeComment } from '../actions/commentActions'
 import { connect } from 'react-redux';
 import '../css/BleatPage.css'
 
@@ -28,6 +28,22 @@ class BleatPage extends Component {
             comment: ''
         })
     }
+
+    handleClick = event => {
+        event.preventDefault()
+        const commentLike = {comment_id: event.target.value, user_id: this.props.user.id}
+        this.props.likeComment(commentLike)
+    }
+
+    liked = (comment) => {
+        let likes = this.props.commentLikes.map(comment => comment.comment_id)
+        if(likes.includes(comment.id)){
+            return <button className='link liked' onClick={this.handleClick} value={comment.id}>♥ {comment.likes}</button>
+        }
+        else {
+            return <button className='link' onClick={this.handleClick} value={comment.id}>♡ {comment.likes}</button>
+        }
+    }
     
     componentWillUnmount() {
         this.props.clearSelectedBleat()
@@ -45,11 +61,13 @@ class BleatPage extends Component {
                             <input className='comment' onChange={this.handleChange} onSubmit={this.handleSubmit} name='comment' value={this.state.comment} placeholder='Comment'/>
                         </form>
                         {this.props.bleat.comments.map(comment => {
+                            console.log(comment)
                             return(
                                 <div className='bleat'>
                                     <h5 className='name'>{comment.user.name}</h5>
                                     <h5 className='username'>{` @${comment.user.username}`}</h5>
                                     <p>{comment.content}</p>
+                                    {this.liked(comment)}
                                 </div>
                             )
                         })}
@@ -62,14 +80,16 @@ class BleatPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user,
+        commentLikes: state.commentLikes
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         clearSelectedBleat: () => dispatch(clearSelectedBleat()),
-        addComment: comment => dispatch(addComment(comment))
+        addComment: comment => dispatch(addComment(comment)),
+        likeComment: commentLike => dispatch(likeComment(commentLike))
     }
 }
 

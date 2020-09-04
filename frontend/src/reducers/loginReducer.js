@@ -1,13 +1,15 @@
 import {
     SET_USER,
     CLEAR_USER,
-    CREATE_BLEAT,
     FOLLOW_USER,
     SET_SELECTED_USER,
     CLEAR_SELECTED_USER,
+    CREATE_BLEAT,
+    LIKE_BLEAT,
     SET_SELECTED_BLEAT,
     CLEAR_SELECTED_BLEAT,
     CREATE_COMMENT,
+    LIKE_COMMENT,
     SET_RESULTS
 } from '../actionTypes/index';
 
@@ -21,6 +23,8 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
                     followers: action.payload.followers,
                     following: action.payload.following,
                     bleats: action.payload.bleats,
+                    bleatLikes: action.payload.bleat_likes,
+                    commentLikes: action.payload.comment_likes,
                     loggedIn: true
                 } 
             }
@@ -69,7 +73,9 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
                 selectedUser: {id: action.payload.id, name: action.payload.name, username: action.payload.username},
                 selectedUserFollowers: action.payload.followers,
                 selectedUserFollowing: action.payload.following,
-                selectedUserBleats: action.payload.bleats
+                selectedUserBleats: action.payload.bleats,
+                selectedUserBleatLikes: action.payload.bleat_likes,
+                selectedUserCommentLikes: action.payload.comment_likes
             }
 
         case CLEAR_SELECTED_USER:
@@ -94,13 +100,31 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             }
 
         case CREATE_COMMENT:
-            console.log(action.payload)
             return {
                 ...state,
                 user: action.payload.user,
                 following: action.payload.user.following,
                 bleats: action.payload.user.bleats,
                 selectedBleat: action.payload.bleat
+            }
+
+        case LIKE_COMMENT:
+            return {
+                ...state,
+                user: action.payload.user,
+                following: action.payload.user.following,
+                bleats: action.payload.user.bleats,
+                selectedBleat: action.payload.comment.bleat,
+                commentLikes: action.payload.user.comment_likes
+            }
+
+        case LIKE_BLEAT:
+            return {
+                ...state,
+                user: action.payload.user,
+                following: action.payload.user.following,
+                bleats: action.payload.user.bleats,
+                bleatLikes: action.payload.user.bleat_likes
             }
 
         default:

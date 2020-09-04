@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
                                             only: [:username, :name]
                                         },
                                         comments: {
-                                            only: :content
+                                            only: [:user_id, :content, :likes, :id]
                                         }
                                     }
                                 }
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
                                     only: [:username, :name]
                                 },
                                 comments: {
-                                    only: :content
+                                    only: [:user_id, :content, :likes, :id]
                                 }
                             }
                         }
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
                             only: [:username, :name]
                         },
                         comments: {
-                            only: :content,
+                            only: [:user_id, :content, :likes, :id],
                             include: {
                                 user: {
                                     only: [:username, :name]

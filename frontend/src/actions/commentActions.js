@@ -24,3 +24,23 @@ export const addComment = (comment) => {
         }
     }
 }
+
+export const likeComment = (commentLike) => {
+    return async function (dispatch) {
+        try{
+            const response = await fetch('http://localhost:3001/comment_likes', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(commentLike)
+            })
+            const commentLikeObj = await response.json()
+            dispatch({type: LIKE_COMMENT, payload: commentLikeObj})
+        }
+        catch(data) {
+            console.log(data)
+        }
+    }
+}

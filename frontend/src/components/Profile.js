@@ -11,7 +11,7 @@ const Profile = (props) => {
                         <h5 className='name'>{bleat.user.name}</h5>
                         <h5 className='username'>{` @${bleat.user.username}`}</h5>
                         <p>{bleat.content}</p>
-                        {<BleatOptions bleat={bleat} />}
+                        {<BleatOptions bleat={bleat} user={props.user}/>}
                     </div>
                 )
             }).reverse()}

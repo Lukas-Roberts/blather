@@ -26,6 +26,12 @@ class Explore extends Component {
         this.props.clearSelectedUser()
     }
 
+    componentWillUnmount() {
+        this.setState({
+            query: ''
+        })
+    }
+
     render() {
         return this.props.selectedUser ?
         (<Redirect to={`/explore/user/${this.props.selectedUser.id}`} />)

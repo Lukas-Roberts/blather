@@ -59,6 +59,12 @@ class UsersController < ApplicationController
                             only: :content
                         }
                     }
+                },
+                bleat_likes: {
+                    only: :bleat_id
+                },
+                comment_likes: {
+                    only: :comment_id
                 }
             ]         
         else

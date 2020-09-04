@@ -18,7 +18,6 @@ const Feed = (props) => {
     return props.userBleats.length !== 0 ?
         (<div className='feed'>
             {getBleats(props).map(bleat => {
-                console.log(bleat.id)
                 return(
                     <div className='bleat' key={bleat.id}>
                         <h5 className='name'>{bleat.user.name}</h5>

@@ -16,7 +16,7 @@ class BleatsController < ApplicationController
                     only: [:username, :name]
                 },
                 comments: {
-                    only: :content,
+                    only: [:user_id, :content, :likes, :id],
                     include: {
                         user: {
                             only: [:username, :name]
@@ -35,7 +35,7 @@ class BleatsController < ApplicationController
                     only: [:username, :name]
                 },
                 comments: {
-                    only: :content,
+                    only: [:user_id, :content, :likes, :id],
                     include: {
                         user: {
                             only: [:username, :name]
@@ -45,10 +45,4 @@ class BleatsController < ApplicationController
             }
     end
 
-    def update
-        bleat = Bleat.find_by(id: params[:id])
-        bleat.likes = bleat.likes + 1
-        bleat.save
-        render json: bleat
-    end
 end
