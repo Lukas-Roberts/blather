@@ -56,8 +56,11 @@ export default function loginReducer(state= {user: null, loggedIn: false, select
             }
 
         case FOLLOW_USER:
+            console.log(action.payload)
             return {
-                ...state
+                ...state,
+                following: action.payload[0].following,
+                selectedUserFollowers: action.payload[1].followers
             }
         
         case SET_RESULTS:

@@ -1,8 +1,6 @@
 import {
     CREATE_BLEAT,
-    DELETE_BLEAT,
     LIKE_BLEAT,
-    UNLIKE_BLEAT,
     SET_SELECTED_BLEAT,
     CLEAR_SELECTED_BLEAT
 } from '../actionTypes/index'

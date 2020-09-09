@@ -13,18 +13,10 @@ class UsersController < ApplicationController
         only: [:username, :id, :name],
         include: [
             followers: {
-                only: :username
+                only: [:username, :id]
             },
             following: {
-                only: :username   
-            },
-            feed: {
-                only: [:user_id, :content],
-                include: {
-                    user: {
-                        only: [:username, :name]
-                    }
-                }
+                only: [:username, :id]   
             },
             bleats: {
                 only: :content,
@@ -44,10 +36,10 @@ class UsersController < ApplicationController
             only: [:username, :id, :name],
             include: [
                 followers: {
-                    only: :username
+                    only: [:username, :id]
                 },
                 following: {
-                    only: :username   
+                    only: [:username, :id]   
                 },
                 bleats: {
                     only: [:user_id, :content, :likes, :id],
@@ -71,6 +63,57 @@ class UsersController < ApplicationController
             users = User.where('username LIKE :username OR name LIKE :name', {username: "#{params[:id]}%", name: "#{params[:id]}%"})
             render json: users 
         end       
+    end
+
+    def follow
+        user = User.find_by(id: params[:id])
+        user_to_follow = User.find_by(id: params[:followUserId])
+        if user.following?(user_to_follow)
+            user.unfollow(user_to_follow)
+        else
+            user.follow(user_to_follow)
+        end
+        render json: [user, user_to_follow],
+            only: [:username, :id, :name],
+            include: [
+                followers: {
+                    only: [:username, :id]
+                },
+                following: {
+                    only: [:username, :id],
+                    include: [
+                        bleats: {
+                            only: [:content, :id, :user_id, :likes],
+                            include: {
+                                user: {
+                                    only: [:username, :name]
+                                },
+                                comments: {
+                                    only: [:user_id, :content, :likes, :id]
+                                }
+                            }
+                        }
+                    ]   
+                },
+                bleats: {
+                    only: [:user_id, :content, :likes, :id],
+                    include: {
+                        user: {
+                            only: [:username, :name]
+                        },
+                        comments: {
+                            only: :content
+                        }
+                    }
+                },
+                bleat_likes: {
+                    only: :bleat_id
+                },
+                comment_likes: {
+                    only: :comment_id
+                }
+            ]
+        
     end
 
 end

@@ -11,10 +11,10 @@ class SessionsController < ApplicationController
                 only: [:username, :id, :name],
                 include: [
                     followers: {
-                        only: :username
+                        only: [:username, :id]
                     },
                     following: {
-                        only: :username,
+                        only: [:username, :id],
                         include: [
                             bleats: {
                                 only: [:content, :id, :user_id, :likes],

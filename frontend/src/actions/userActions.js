@@ -19,9 +19,23 @@ export function clearUser() {
     }
 }
 
-export function followUser() {
-    return {
-        type: FOLLOW_USER
+export function followUser(followingUser) {
+    return async function (dispatch) {
+        try{
+            const response = await fetch(`http://localhost:3001/users/${followingUser.userId}/follow`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(followingUser)
+            })
+            const userObj = await response.json()
+            dispatch({type: FOLLOW_USER, payload: userObj})
+        }
+        catch(data) {
+            console.log(data)
+        }
     }
 }
 

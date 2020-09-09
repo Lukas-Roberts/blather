@@ -1,8 +1,6 @@
 import {
     CREATE_COMMENT,
-    DELETE_COMMENT,
-    LIKE_COMMENT,
-    UNLIKE_COMMENT
+    LIKE_COMMENT
 } from '../actionTypes/index'
 
 export const addComment = (comment) => {

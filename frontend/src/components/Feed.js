@@ -34,7 +34,6 @@ const Feed = (props) => {
             <h3>Right now, your feed is empty. To get started, follow some of your friends and start bleating!</h3>
         </div>
         )
-
 }
 
 const mapStateToProps = (state) => {

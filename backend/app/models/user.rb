@@ -14,4 +14,18 @@ class User < ApplicationRecord
     has_many :followers, class_name: "User", through: :follower_users, foreign_key: "follower_id"
     has_many :following, class_name: "User", through: :following_users, foreign_key: "following_id" 
         
+    def following?(user)
+        self.following.include?(user)
+    end
+
+    def follow(user)
+        self.following << user
+        
+    end
+
+    def unfollow(user)
+        self.following.delete(user)
+        
+    end
+
 end

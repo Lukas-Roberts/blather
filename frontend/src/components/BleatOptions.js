@@ -14,9 +14,9 @@ class BleatOptions extends Component {
         event.preventDefault()
         let bleatLike = {bleat_id: event.target.value, user_id: this.props.userId}
         this.props.likeBleat(bleatLike)
-        if(this.props.user.id != this.props.userId){
-            this.props.getSelectedUser(this.props.user.id)
-            this.props.getSelectedUser(this.props.user.id)
+        if(this.props.bleat.user_id !== this.props.userId){
+            this.props.getSelectedUser(this.props.bleat.user_id)
+            this.props.getSelectedUser(this.props.bleat.user_id)
         }
     }
 
